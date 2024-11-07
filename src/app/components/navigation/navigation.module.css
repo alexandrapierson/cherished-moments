@@ -1,0 +1,35 @@
+.navigation li {
+  list-style: none;
+}
+
+.navigation {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr) auto repeat(3, 1fr);
+}
+
+.navigation li {
+  text-align: center;
+}
+
+.navigation > li:nth-child(1) {
+  grid-column-start: 2;
+}
+
+.navigation li:nth-child(3) {
+  font-size: 1.5rem;
+}
+
+.navigation li {
+  font-size: 1.25rem;
+  color: var(--primary-50);
+}
+
+.navigation,
+.navigation li {
+  align-content: center;
+}
+
+.navigation {
+  height: 3rem;
+  background-color: var(--primary-800);
+}
