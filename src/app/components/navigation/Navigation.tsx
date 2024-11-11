@@ -3,7 +3,7 @@ import styles from './navigation.module.css'
 
 const Navigation = () => {
   return (
-    <nav className='full-width'>
+    <nav className='full-width bg-primary'>
       <ul className={styles.navigation}>
         <li>About</li>
         <li>Services</li>
