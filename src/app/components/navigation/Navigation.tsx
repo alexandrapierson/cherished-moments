@@ -1,27 +1,30 @@
 import React from 'react'
 import styles from './navigation.module.css'
+import Link from 'next/link'
 
 const Navigation = () => {
   return (
     <nav className='full-width bg-primary'>
       <ul className={styles.navigation}>
         <li>
-          <a href='#'>About</a>
+          <Link href='#'>About</Link>
         </li>
         <li>
-          <a href='#'>Services</a>
+          <Link href='#'>Services</Link>
         </li>
         <li>
-          <a href='#'>Cherished Moments</a>
+          <Link href='#'>Cherished Moments</Link>
         </li>
         <li>
-          <a href='#'>Porfolio</a>
+          <Link href='#'>Porfolio</Link>
         </li>
         <li>
-          <a href='#'>Contact</a>
+          <Link href='#'>Contact</Link>
         </li>
         <li>
-          <a href='#'>Book Now</a>
+          <Link href='#' className='primary-button'>
+            Book Now
+          </Link>
         </li>
       </ul>
     </nav>

@@ -31,6 +31,14 @@
   --primary-200: #d1d1d7;
   --primary-100: #e9e9ec;
   --primary-50: #f4f4f6;
+
+  --spacing-xs: 8px;
+  --spacing-s: 16px;
+  --spacing-m: 24px;
+  --spacing-l: 36px;
+  --spacing-xl: 48px;
+  --spacing-xxl: 64px;
+  --spacing-xxl: 92px;
 }
 
 /* Default Text Setup */
@@ -56,6 +64,10 @@ a {
 li {
   font-family: 'Montserrat';
   font-weight: 400;
+}
+
+a {
+  text-decoration: none;
 }
 
 /* Removes Default Spacing */
@@ -116,4 +128,18 @@ img {
 video {
   width: 100%;
   max-height: 60vh;
+}
+
+.primary-button {
+  background-color: var(--primary-900);
+  color: var(--primary-100);
+  padding: 8px 16px;
+  font-weight: 500;
+}
+
+.primary-button:hover,
+.primary-button:active {
+  background-color: var(--primary-500);
+  color: var(--primary-900);
+  font-weight: 500;
 }

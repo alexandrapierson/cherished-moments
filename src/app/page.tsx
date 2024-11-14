@@ -7,7 +7,14 @@ export default function Home() {
   return (
     <div className='content-grid'>
       <Navigation />
-      <video width='2048' height='2048' autoPlay muted loop>
+      <video
+        width='2048'
+        height='2048'
+        autoPlay
+        muted
+        loop
+        className={`${styles.heroVideo}`}
+      >
         <source src='/videos/wedding-venue.mp4' type='video/mp4' />
       </video>
 
@@ -31,7 +38,9 @@ export default function Home() {
             focus on celebrating. Let us transform your dream into reality,
             creating a wedding that’s perfectly you.
           </p>
-          <Link href='#'>Book An Appointment</Link>
+          <Link href='#' className='primary-button'>
+            Book An Appointment
+          </Link>
         </div>
       </section>
 
@@ -46,7 +55,9 @@ export default function Home() {
             finibus. Aenean non lacinia dolor, at rutrum sapien. Nam elementum
             nisl tincidunt ex consequat, nec feugiat velit aliquet.
           </p>
-          <Link href='/services'>View Our Services</Link>
+          <Link href='/services' className='primary-button'>
+            View Our Services
+          </Link>
         </div>
 
         <div className={`${styles.imageContainer}`}>
@@ -115,7 +126,7 @@ export default function Home() {
             height='2048'
           />
         </div>
-        <div className={`${styles.textContainer}`}>
+        <div className={`${styles.testimonialContainer}`}>
           <h3>Emily & James</h3>
           <p>Full Service Planning</p>
           <blockquote>

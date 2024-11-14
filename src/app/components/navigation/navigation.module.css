@@ -3,7 +3,7 @@
   text-align: center;
 
   /* font-family: 'Montserrat'; */
-  font-size: 1.25rem;
+  font-size: 1rem;
 }
 
 .navigation li a {
@@ -12,7 +12,8 @@
 }
 
 .navigation {
-  height: 3rem;
+  height: auto;
+  padding: 8px 0px;
   display: grid;
   grid-template-columns: repeat(3, 1fr) auto repeat(3, 1fr);
 }

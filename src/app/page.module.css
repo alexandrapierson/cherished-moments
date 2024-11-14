@@ -4,6 +4,19 @@
 
   gap: 48px;
   grid-template-columns: 1fr 2fr;
+  margin-bottom: var(--spacing-xxl);
+}
+
+.textContainer > * {
+  margin-bottom: var(--spacing-m);
+}
+
+.testimonialContainer > p {
+  margin-bottom: var(--spacing-m);
+}
+
+.testimonialContainer > h3 {
+  margin-bottom: var(--spacing-xs);
 }
 
 .servicesContainer {
@@ -12,6 +25,7 @@
 
   gap: 48px;
   grid-template-columns: 1fr 1fr 1fr;
+  margin-bottom: var(--spacing-xxl);
 }
 
 .sectionContainer img,
@@ -48,4 +62,12 @@
 .decorativeText p {
   font-family: 'Oooh Baby';
   font-size: 1.5rem;
+}
+
+.heroVideo {
+  margin: var(--spacing-m) 0px;
+}
+
+.imageContainer > Image {
+  max-height: 400px;
 }
