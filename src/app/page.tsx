@@ -1,3 +1,4 @@
+import Image from 'next/image'
 import Navigation from './components/navigation/Navigation'
 import styles from './page.module.css'
 import Link from 'next/link'
@@ -6,16 +7,17 @@ export default function Home() {
   return (
     <div className='content-grid'>
       <Navigation />
-      <img
-        src='/images/bridal-flowers-with-ring.jpg'
-        alt='Wedding ring nestled into a bridal bouquet.'
-      />
+      <video width='2048' height='2048' autoPlay muted loop>
+        <source src='/videos/wedding-venue.mp4' type='video/mp4' />
+      </video>
 
       <section className={`${styles.sectionContainer}`}>
         <div className={`${styles.imageContainer}`}>
-          <img
+          <Image
             src='/images/couple-pixabay.jpg'
             alt='Wedding aisle with white rose bouquets on either side.'
+            width='2048'
+            height='2048'
           />
         </div>
         <div className={`${styles.textContainer}`}>
@@ -48,7 +50,12 @@ export default function Home() {
         </div>
 
         <div className={`${styles.imageContainer}`}>
-          <img src='/images/couple-pixabay.jpg' alt='' />
+          <Image
+            src='/images/couple-pixabay.jpg'
+            alt=''
+            width='2048'
+            height='2048'
+          />
           <div className={styles.decorativeText}>
             <div className={styles.decorativeLine}></div>
             <p className='script-text'>Venue</p>
@@ -57,7 +64,12 @@ export default function Home() {
         </div>
 
         <div className={`${styles.imageContainer}`}>
-          <img src='/images/couple-pixabay.jpg' alt='' />
+          <Image
+            src='/images/couple-pixabay.jpg'
+            alt=''
+            width='2048'
+            height='2048'
+          />
           <div className={styles.decorativeText}>
             <div className={styles.decorativeLine}></div>
             <p className='script-text'>Attire</p>
@@ -66,7 +78,12 @@ export default function Home() {
         </div>
 
         <div className={`${styles.imageContainer}`}>
-          <img src='/images/couple-pixabay.jpg' alt='' />
+          <Image
+            src='/images/couple-pixabay.jpg'
+            alt=''
+            width='2048'
+            height='2048'
+          />
           <div className={styles.decorativeText}>
             <div className={styles.decorativeLine}></div>
             <p className='script-text'>Stationery</p>
@@ -75,7 +92,12 @@ export default function Home() {
         </div>
 
         <div className={`${styles.imageContainer}`}>
-          <img src='/images/couple-pixabay.jpg' alt='' />
+          <Image
+            src='/images/couple-pixabay.jpg'
+            alt=''
+            width='2048'
+            height='2048'
+          />
           <div className={styles.decorativeText}>
             <div className={styles.decorativeLine}></div>
             <p className='script-text'>Catering</p>
@@ -84,9 +106,14 @@ export default function Home() {
         </div>
       </section>
 
-      <section className={`${styles.servicesContainer}`}>
+      <section className={`${styles.sectionContainer}`}>
         <div className={styles.imageContainer}>
-          <img src='/images/couple-pixabay.jpg' alt='' />
+          <Image
+            src='/images/couple-pixabay.jpg'
+            alt=''
+            width='2048'
+            height='2048'
+          />
         </div>
         <div className={`${styles.textContainer}`}>
           <h3>Emily & James</h3>
@@ -99,7 +126,6 @@ export default function Home() {
             finibus. Aenean non lacinia dolor, at rutrum sapien. Nam elementum
             nisl tincidunt ex consequat, nec feugiat velit aliquet.""
           </blockquote>
-          <Link href='/services'>View Our Services</Link>
         </div>
       </section>
     </div>

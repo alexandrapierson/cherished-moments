@@ -2,6 +2,7 @@
   list-style: none;
   text-align: center;
 
+  /* font-family: 'Montserrat'; */
   font-size: 1.25rem;
   color: var(--primary-50);
 }
@@ -17,6 +18,7 @@
 }
 
 .navigation li:nth-child(3) {
+  font-family: 'Lora';
   font-size: 1.5rem;
 }
 

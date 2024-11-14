@@ -3,7 +3,7 @@
   align-items: center;
 
   gap: 48px;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: 1fr 2fr;
 }
 
 .servicesContainer {
@@ -43,4 +43,9 @@
   display: grid;
   gap: 0.5rem;
   grid-template-columns: 24px auto 1fr;
+}
+
+.decorativeText p {
+  font-family: 'Oooh Baby';
+  font-size: 1.5rem;
 }
