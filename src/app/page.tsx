@@ -119,12 +119,12 @@ export default function Home() {
           <h3>Emily & James</h3>
           <p>Full Service Planning</p>
           <blockquote>
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin
+            &quot;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin
             volutpat, neque ac scelerisque convallis, dui odio mattis lorem, eu
             venenatis ante nisl vel mi. Praesent maximus laoreet augue, eget
             dignissim dui pulvinar eu. Fusce accumsan ipsum a enim interdum
             finibus. Aenean non lacinia dolor, at rutrum sapien. Nam elementum
-            nisl tincidunt ex consequat, nec feugiat velit aliquet.""
+            nisl tincidunt ex consequat, nec feugiat velit aliquet.&quot;
           </blockquote>
         </div>
       </section>
