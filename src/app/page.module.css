@@ -56,6 +56,7 @@
 .decorativeText {
   display: grid;
   gap: 0.5rem;
+  max-width: 350px;
   grid-template-columns: 24px auto 1fr;
 }
 
@@ -66,8 +67,36 @@
 
 .heroVideo {
   margin: var(--spacing-m) 0px;
+  height: clamp(15vh, 100%, 60vh);
 }
 
-.imageContainer > Image {
-  max-height: 400px;
+@media screen and (max-width: 875px) {
+  .sectionContainer,
+  .servicesContainer {
+    grid-template-columns: 1fr;
+  }
+
+  .textContainer {
+    grid-column: auto;
+  }
+
+  .rightImage > .textContainer {
+    grid-column: auto;
+    grid-row: auto;
+  }
+
+  .servicesContainer > .textContainer {
+    grid-column: auto;
+    grid-row: auto;
+  }
+
+  .imageContainer {
+    justify-self: center;
+  }
+
+  /* Figure out how to change video orientation */
+  .heroVideo {
+    height: 60vh;
+    width: 100%;
+  }
 }

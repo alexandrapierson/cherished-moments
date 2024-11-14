@@ -16,7 +16,7 @@ const Navigation = () => {
           <Link href='#'>Cherished Moments</Link>
         </li>
         <li>
-          <Link href='#'>Porfolio</Link>
+          <Link href='#'>Portfolio</Link>
         </li>
         <li>
           <Link href='#'>Contact</Link>
