@@ -1,6 +1,7 @@
 import Image from 'next/image'
 import styles from './page.module.css'
 import Link from 'next/link'
+import DecorativeImage from './components/decorative-image/DecorativeImage'
 
 export default function Home() {
   return (
@@ -59,61 +60,29 @@ export default function Home() {
           </Link>
         </div>
 
-        <div className={`${styles.imageContainer}`}>
-          <Image
-            src='/images/floral-wedding-venue.jpg'
-            alt=''
-            width='700'
-            height='800'
-          />
-          <div className={styles.decorativeText}>
-            <div className={styles.decorativeLine}></div>
-            <p className='script-text'>Venue</p>
-            <div className={styles.decorativeLine}></div>
-          </div>
-        </div>
+        <DecorativeImage
+          src='/images/floral-wedding-venue.jpg'
+          alt=''
+          decorativeText='Venue'
+        />
 
-        <div className={`${styles.imageContainer}`}>
-          <Image
-            src='/images/bride-and-groom-with-champaigne.jpg'
-            alt=''
-            width='700'
-            height='800'
-          />
-          <div className={styles.decorativeText}>
-            <div className={styles.decorativeLine}></div>
-            <p className='script-text'>Attire</p>
-            <div className={styles.decorativeLine}></div>
-          </div>
-        </div>
+        <DecorativeImage
+          src='/images/bride-and-groom-with-champaigne.jpg'
+          alt=''
+          decorativeText='Attire'
+        />
 
-        <div className={`${styles.imageContainer}`}>
-          <Image
-            src='/images/die-cut-wedding-stationery.jpg'
-            alt=''
-            width='700'
-            height='800'
-          />
-          <div className={styles.decorativeText}>
-            <div className={styles.decorativeLine}></div>
-            <p className='script-text'>Stationery</p>
-            <div className={styles.decorativeLine}></div>
-          </div>
-        </div>
+        <DecorativeImage
+          src='/images/die-cut-wedding-stationery.jpg'
+          alt=''
+          decorativeText='Stationery'
+        />
 
-        <div className={`${styles.imageContainer}`}>
-          <Image
-            src='/images/pouring-wine-for-wedding-guests.jpg'
-            alt=''
-            width='700'
-            height='800'
-          />
-          <div className={styles.decorativeText}>
-            <div className={styles.decorativeLine}></div>
-            <p className='script-text'>Catering</p>
-            <div className={styles.decorativeLine}></div>
-          </div>
-        </div>
+        <DecorativeImage
+          src='/images/pouring-wine-for-wedding-guests.jpg'
+          alt=''
+          decorativeText='Catering'
+        />
       </section>
 
       <section className={`${styles.sectionContainer}`}>

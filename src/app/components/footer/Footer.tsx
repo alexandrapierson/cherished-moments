@@ -5,10 +5,8 @@ import styles from './footer.module.css'
 
 function Footer() {
   return (
-    <div
-      className={`content-grid full-width bg-primary ${styles.footerPadding}`}
-    >
-      <footer className={`${styles.footerGrid}`}>
+    <div className={`content-grid full-width bg-primary `}>
+      <footer className={`${styles.footerPadding} ${styles.footerGrid}`}>
         {/* Site Navigation Links */}
         <nav>
           <h3>Navigation</h3>

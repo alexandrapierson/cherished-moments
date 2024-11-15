@@ -37,14 +37,14 @@
 
   --page-background: #fff;
 
-  --spacing-xxs: 4px;
-  --spacing-xs: 8px;
-  --spacing-s: 16px;
-  --spacing-m: 24px;
-  --spacing-l: 36px;
-  --spacing-xl: 48px;
-  --spacing-xxl: 64px;
-  --spacing-xxl: 92px;
+  --spacing-xxs: 0.25rem;
+  --spacing-xs: 0.5rem;
+  --spacing-s: 1rem;
+  --spacing-m: 2rem;
+  --spacing-l: 3rem;
+  --spacing-xl: 3.5rem;
+  --spacing-xxl: 4rem;
+  --spacing-xxl: 6rem;
 }
 
 /* Default Text Setup */
@@ -162,7 +162,7 @@ video {
 input {
   font-family: 'Montserrat';
   font-size: 1rem;
-  padding: 0rem 0.5rem;
+  padding: 0.25rem 0.5rem;
   border: 0;
   outline: 1px solid var(--primary-200);
 }

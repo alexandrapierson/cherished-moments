@@ -18,6 +18,7 @@
 
 .footerGrid h3 {
   font-weight: 400;
+  width: max-content;
 }
 
 .footerGrid nav h3 {
@@ -49,10 +50,10 @@
 }
 
 .footerPadding {
-  padding: var(--spacing-l);
+  padding: var(--spacing-l) 0px;
 }
 
-@media screen and (max-width: 1000) {
+@media screen and (max-width: 1000px) {
   .footerGrid {
     grid-template-columns: 1fr 1fr;
   }
@@ -70,6 +71,8 @@
   .footerGrid img {
     grid-column: 1/3;
     grid-row: 2/3;
+
+    justify-self: center;
   }
 
   .footerGrid form {
