@@ -32,8 +32,12 @@
   --primary-100: #e9e9ec;
   --primary-50: #f4f4f6;
 
+  --green: #86daa1;
+  --red: #f68989;
+
   --page-background: #fff;
 
+  --spacing-xxs: 4px;
   --spacing-xs: 8px;
   --spacing-s: 16px;
   --spacing-m: 24px;
@@ -136,12 +140,42 @@ video {
 .primary-button {
   background-color: var(--primary-900);
   color: var(--primary-100);
-  padding: 8px 16px;
+  padding: 0.5rem 1rem;
   font-weight: 500;
+
+  max-width: max-content;
+  max-height: max-content;
 }
 
 .primary-button:hover,
 .primary-button:active {
   background-color: var(--primary-500);
   color: var(--primary-900);
+}
+
+.logo {
+  aspect-ratio: 1/1;
+  width: clamp(100px, 100%, 175px);
+  height: clamp(100px, 100%, 175px);
+}
+
+input {
+  font-family: 'Montserrat';
+  font-size: 1rem;
+  padding: 0rem 0.5rem;
+  border: 0;
+  outline: 1px solid var(--primary-200);
+}
+
+button {
+  font-family: 'Montserrat';
+  border: 0;
+}
+
+input:user-valid {
+  outline-color: var(--green);
+}
+
+input:user-invalid {
+  outline-color: var(--red);
 }

@@ -7,10 +7,6 @@
   margin-bottom: var(--spacing-xxl);
 }
 
-.textContainer > * {
-  margin-bottom: var(--spacing-m);
-}
-
 .testimonialContainer > p {
   margin-bottom: var(--spacing-m);
 }
@@ -35,6 +31,9 @@
 }
 
 .textContainer {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-m);
   grid-column: 2 / 4;
 }
 
@@ -96,7 +95,6 @@
     justify-self: center;
   }
 
-  /* Figure out how to change video orientation */
   .heroVideo {
     height: 60vh;
   }
