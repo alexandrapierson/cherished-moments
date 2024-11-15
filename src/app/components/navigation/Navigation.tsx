@@ -4,7 +4,7 @@ import Link from 'next/link'
 
 const Navigation = () => {
   return (
-    <nav className='full-width bg-primary'>
+    <nav className='content-grid full-width bg-primary'>
       <ul className={styles.navigation}>
         <li>
           <Link href='#'>About</Link>

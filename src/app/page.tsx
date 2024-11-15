@@ -1,12 +1,10 @@
 import Image from 'next/image'
-import Navigation from './components/navigation/Navigation'
 import styles from './page.module.css'
 import Link from 'next/link'
 
 export default function Home() {
   return (
     <div className='content-grid'>
-      <Navigation />
       <video
         width='2048'
         height='2048'
@@ -46,14 +44,15 @@ export default function Home() {
 
       <section className={`${styles.servicesContainer} ${styles.rightImage}`}>
         <div className={`${styles.textContainer}`}>
-          <h2>See how our services can make your day</h2>
+          <h2>Our Wedding Planning Services</h2>
           <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin
-            volutpat, neque ac scelerisque convallis, dui odio mattis lorem, eu
-            venenatis ante nisl vel mi. Praesent maximus laoreet augue, eget
-            dignissim dui pulvinar eu. Fusce accumsan ipsum a enim interdum
-            finibus. Aenean non lacinia dolor, at rutrum sapien. Nam elementum
-            nisl tincidunt ex consequat, nec feugiat velit aliquet.
+            We offer a full suite of wedding planning services to bring your
+            vision to life. Whether you need help with every detail or just a
+            few final touches, our expert team is here to make the process
+            effortless and enjoyable. From venue selection and vendor
+            coordination to custom décor and day-of management, we handle it all
+            with precision and care. Our goal is to create a wedding experience
+            that reflects your unique style and story.
           </p>
           <Link href='/services' className='primary-button'>
             View Our Services
@@ -130,12 +129,12 @@ export default function Home() {
           <h3>Emily & James</h3>
           <p>Full Service Planning</p>
           <blockquote>
-            &quot;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin
-            volutpat, neque ac scelerisque convallis, dui odio mattis lorem, eu
-            venenatis ante nisl vel mi. Praesent maximus laoreet augue, eget
-            dignissim dui pulvinar eu. Fusce accumsan ipsum a enim interdum
-            finibus. Aenean non lacinia dolor, at rutrum sapien. Nam elementum
-            nisl tincidunt ex consequat, nec feugiat velit aliquet.&quot;
+            &quot;Our wedding was everything we dreamed of and more! From the
+            first meeting to the final moments of our big day, the team took
+            care of every detail with so much heart and dedication. We couldn’t
+            have asked for a more perfect day, and our guests are still talking
+            about how beautiful everything was. Thank you for making our vision
+            come to life!&quot;
           </blockquote>
         </div>
       </section>

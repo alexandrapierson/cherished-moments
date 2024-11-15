@@ -67,7 +67,7 @@
 
 .heroVideo {
   margin: var(--spacing-m) 0px;
-  height: clamp(15vh, 100%, 60vh);
+  height: clamp(15vh, 100%, 80vh);
 }
 
 @media screen and (max-width: 875px) {

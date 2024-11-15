@@ -31,3 +31,34 @@
 .navigation li {
   align-content: center;
 }
+
+@media screen and (max-width: 1000px) {
+  .navigation {
+    grid-template-columns: 1fr auto 1fr;
+  }
+
+  .navigation li {
+    display: none;
+  }
+
+  .navigation > li:nth-child(1) {
+    grid-column-start: 1;
+  }
+
+  .navigation > li:nth-child(3) {
+    display: block;
+    grid-column: 2 / 3;
+  }
+
+  .navigation > li:nth-child(6) {
+    display: block;
+    grid-column: 1 / 2;
+    grid-row: 1/2;
+  }
+}
+
+@media screen and (max-width: 580px) {
+  .navigation > li:nth-child(6) {
+    display: none;
+  }
+}
