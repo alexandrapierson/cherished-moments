@@ -1,0 +1,23 @@
+.polaroidImage {
+  padding: 20px;
+  width: 200px;
+  height: 220px;
+  background-color: var(--page-background);
+  box-shadow: 0px 5px 10px var(--primary-300);
+}
+
+.polaroidImage img {
+  height: calc(100% - 40px);
+  object-fit: cover;
+}
+
+.polaroidImage p {
+  font-family: 'Oooh Baby';
+  width: 100%;
+  text-align: center;
+  padding: 12px 0px 16px 0px;
+}
+
+.polaroidImage:hover {
+  z-index: 3;
+}

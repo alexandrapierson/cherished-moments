@@ -2,6 +2,7 @@ import Image from 'next/image'
 import styles from './page.module.css'
 import Link from 'next/link'
 import DecorativeImage from './components/decorative-image/DecorativeImage'
+import PolaroidImage from './components/polaroid-image/PolaroidImage'
 
 export default function Home() {
   return (
@@ -41,6 +42,34 @@ export default function Home() {
             Book An Appointment
           </Link>
         </div>
+      </section>
+
+      <section className={`${styles.polaroidContainer}`}>
+        <PolaroidImage
+          src='/images/couple-photo-1.jpg'
+          alt=''
+          caption='Josh & Andrea'
+        />
+        <PolaroidImage
+          src='/images/couple-photo-2.jpg'
+          alt=''
+          caption='Josh & Andrea'
+        />{' '}
+        <PolaroidImage
+          src='/images/couple-photo-3.jpg'
+          alt=''
+          caption='Josh & Andrea'
+        />{' '}
+        <PolaroidImage
+          src='/images/couple-photo-4.jpg'
+          alt=''
+          caption='Josh & Andrea'
+        />
+        <PolaroidImage
+          src='/images/couple-photo-5.jpg'
+          alt=''
+          caption='Josh & Andrea'
+        />
       </section>
 
       <section className={`${styles.servicesContainer} ${styles.rightImage}`}>
