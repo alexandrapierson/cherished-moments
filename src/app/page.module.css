@@ -67,7 +67,9 @@
 
 .heroVideo {
   margin: var(--spacing-m) 0px;
-  height: clamp(15vh, 100%, 80vh);
+  object-fit: cover;
+  width: 100%;
+  height: auto;
 }
 
 @media screen and (max-width: 875px) {
@@ -97,6 +99,5 @@
   /* Figure out how to change video orientation */
   .heroVideo {
     height: 60vh;
-    width: 100%;
   }
 }

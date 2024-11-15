@@ -6,8 +6,8 @@ export default function Home() {
   return (
     <div className='content-grid'>
       <video
-        width='2048'
-        height='2048'
+        width='1280'
+        height='720'
         autoPlay
         muted
         loop
@@ -21,8 +21,8 @@ export default function Home() {
           <Image
             src='/images/couple-pixabay.jpg'
             alt='Wedding aisle with white rose bouquets on either side.'
-            width='2048'
-            height='2048'
+            width='700'
+            height='800'
           />
         </div>
         <div className={`${styles.textContainer}`}>
@@ -61,10 +61,10 @@ export default function Home() {
 
         <div className={`${styles.imageContainer}`}>
           <Image
-            src='/images/couple-pixabay.jpg'
+            src='/images/floral-wedding-venue.jpg'
             alt=''
-            width='2048'
-            height='2048'
+            width='700'
+            height='800'
           />
           <div className={styles.decorativeText}>
             <div className={styles.decorativeLine}></div>
@@ -75,10 +75,10 @@ export default function Home() {
 
         <div className={`${styles.imageContainer}`}>
           <Image
-            src='/images/couple-pixabay.jpg'
+            src='/images/bride-and-groom-with-champaigne.jpg'
             alt=''
-            width='2048'
-            height='2048'
+            width='700'
+            height='800'
           />
           <div className={styles.decorativeText}>
             <div className={styles.decorativeLine}></div>
@@ -89,10 +89,10 @@ export default function Home() {
 
         <div className={`${styles.imageContainer}`}>
           <Image
-            src='/images/couple-pixabay.jpg'
+            src='/images/die-cut-wedding-stationery.jpg'
             alt=''
-            width='2048'
-            height='2048'
+            width='700'
+            height='800'
           />
           <div className={styles.decorativeText}>
             <div className={styles.decorativeLine}></div>
@@ -103,10 +103,10 @@ export default function Home() {
 
         <div className={`${styles.imageContainer}`}>
           <Image
-            src='/images/couple-pixabay.jpg'
+            src='/images/pouring-wine-for-wedding-guests.jpg'
             alt=''
-            width='2048'
-            height='2048'
+            width='700'
+            height='800'
           />
           <div className={styles.decorativeText}>
             <div className={styles.decorativeLine}></div>
@@ -119,10 +119,10 @@ export default function Home() {
       <section className={`${styles.sectionContainer}`}>
         <div className={styles.imageContainer}>
           <Image
-            src='/images/couple-pixabay.jpg'
+            src='/images/emily-and-james-couple-photo-2024.jpg'
             alt=''
-            width='2048'
-            height='2048'
+            width='700'
+            height='800'
           />
         </div>
         <div className={`${styles.testimonialContainer}`}>

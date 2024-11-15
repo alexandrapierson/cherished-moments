@@ -7,22 +7,22 @@ const Navigation = () => {
     <nav className='content-grid full-width bg-primary'>
       <ul className={styles.navigation}>
         <li>
-          <Link href='#'>About</Link>
+          <Link href='/about'>About</Link>
         </li>
         <li>
-          <Link href='#'>Services</Link>
+          <Link href='/services'>Services</Link>
         </li>
         <li>
-          <Link href='#'>Cherished Moments</Link>
+          <Link href='/'>Cherished Moments</Link>
         </li>
         <li>
-          <Link href='#'>Portfolio</Link>
+          <Link href='/portfolio'>Portfolio</Link>
         </li>
         <li>
-          <Link href='#'>Contact</Link>
+          <Link href='/contact'>Contact</Link>
         </li>
         <li>
-          <Link href='#' className='primary-button'>
+          <Link href='/book-an-appointment' className='primary-button'>
             Book Now
           </Link>
         </li>

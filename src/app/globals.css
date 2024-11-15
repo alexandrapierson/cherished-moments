@@ -32,6 +32,8 @@
   --primary-100: #e9e9ec;
   --primary-50: #f4f4f6;
 
+  --page-background: #fff;
+
   --spacing-xs: 8px;
   --spacing-s: 16px;
   --spacing-m: 24px;
@@ -129,7 +131,6 @@ img {
 
 video {
   width: 100%;
-  max-height: 60vh;
 }
 
 .primary-button {
