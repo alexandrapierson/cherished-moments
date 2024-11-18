@@ -1,0 +1,15 @@
+input {
+  font-family: 'Montserrat';
+  font-size: 1rem;
+  padding: 0.25rem 0.5rem;
+  border: 0;
+  outline: 1px solid var(--primary-200);
+}
+
+input:user-valid {
+  outline-color: var(--green);
+}
+
+input:user-invalid {
+  outline-color: var(--red);
+}

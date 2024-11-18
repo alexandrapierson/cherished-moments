@@ -1,0 +1,51 @@
+/* Instantiate Font Files */
+@font-face {
+  font-family: 'Lora';
+  src: url('./fonts/Lora-VariableFont_wght.ttf') format('truetype-variations');
+  font-weight: 1 999;
+}
+
+@font-face {
+  font-family: 'Montserrat';
+  src: url('./fonts/Montserrat-VariableFont_wght.ttf')
+    format('truetype-variations');
+  font-weight: 1 999;
+}
+
+@font-face {
+  font-family: 'Oooh Baby';
+  src: url('./fonts/OoohBaby-Regular.ttf');
+  font-weight: 400;
+}
+
+/* Default Text Setup */
+h1,
+h2,
+h3,
+h4 {
+  font-family: 'Lora';
+  font-weight: 525;
+  width: clamp(20ch, 100%, 60ch);
+  color: var(--primary-900);
+  line-height: 130%;
+}
+
+p,
+blockquote,
+a,
+label {
+  font-family: 'Montserrat';
+  font-weight: 400;
+  width: clamp(30ch, 100%, 75ch);
+  color: var(--primary-900);
+  line-height: 150%;
+}
+
+li {
+  font-family: 'Montserrat';
+  font-weight: 400;
+}
+
+a {
+  text-decoration: none;
+}

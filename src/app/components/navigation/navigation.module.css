@@ -22,7 +22,7 @@
   grid-column-start: 2;
 }
 
-.navigation li:nth-child(3) a {
+.navigation .brand a {
   font-family: 'Lora';
   font-size: 1.5rem;
 }
@@ -45,7 +45,7 @@
     grid-column-start: 1;
   }
 
-  .navigation > li:nth-child(3) {
+  .navigation > .brand {
     display: block;
     grid-column: 2 / 3;
   }

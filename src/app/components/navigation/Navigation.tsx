@@ -12,7 +12,7 @@ const Navigation = () => {
         <li>
           <Link href='/services'>Services</Link>
         </li>
-        <li>
+        <li className={styles.brand}>
           <Link href='/'>Cherished Moments</Link>
         </li>
         <li>

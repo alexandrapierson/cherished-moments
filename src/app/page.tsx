@@ -48,7 +48,7 @@ export default function Home() {
         <PolaroidImage
           src='/images/couple-photo-1.jpg'
           alt=''
-          caption='Josh & Andrea'
+          caption='Hana & James'
         />
         <PolaroidImage
           src='/images/couple-photo-2.jpg'
@@ -58,17 +58,17 @@ export default function Home() {
         <PolaroidImage
           src='/images/couple-photo-3.jpg'
           alt=''
-          caption='Josh & Andrea'
+          caption='Kyle & Hayley'
         />{' '}
         <PolaroidImage
           src='/images/couple-photo-4.jpg'
           alt=''
-          caption='Josh & Andrea'
+          caption='Hannah & Jason'
         />
         <PolaroidImage
           src='/images/couple-photo-5.jpg'
           alt=''
-          caption='Josh & Andrea'
+          caption='Samantha & Chris'
         />
       </section>
 

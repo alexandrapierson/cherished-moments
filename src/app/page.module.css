@@ -2,7 +2,7 @@
   display: grid;
   align-items: center;
 
-  gap: 48px;
+  gap: var(--spacing-l);
   grid-template-columns: 1fr 2fr;
   margin-bottom: var(--spacing-xxl);
 }
@@ -19,7 +19,7 @@
   display: grid;
   align-items: center;
 
-  gap: 48px;
+  gap: var(--spacing-l);
   grid-template-columns: 1fr 1fr 1fr;
   margin-bottom: var(--spacing-xxl);
 }
@@ -55,12 +55,6 @@
   max-width: 100%;
   align-content: center;
   margin-bottom: var(--spacing-xl);
-}
-
-.polaroidContainer > :nth-child(2) {
-  position: absolute;
-  transform: translateX(75%);
-  z-index: 0;
 }
 
 .polaroidContainer > :nth-child(2) {
