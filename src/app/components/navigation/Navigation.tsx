@@ -1,10 +1,12 @@
 import React from 'react'
 import styles from './navigation.module.css'
 import Link from 'next/link'
+import AnimatedX from './animated-x/AnimatedX'
 
 const Navigation = () => {
   return (
     <nav className='content-grid full-width bg-primary'>
+      <AnimatedX />
       <ul className={styles.navigation}>
         <li>
           <Link href='/about'>About</Link>

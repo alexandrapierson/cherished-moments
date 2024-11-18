@@ -25,6 +25,12 @@
   --spacing-xl: 3.5rem;
   --spacing-xxl: 4rem;
   --spacing-xxl: 6rem;
+
+  --bar-width: 60px;
+  --bar-height: 10px;
+  --bar-gap: 16px;
+  --hamburger-height: calc((var(--bar-height) * 3) + (var(--bar-gap) * 2));
+  --nav-animation-timing: 200ms ease-in-out;
 }
 
 /* Removes Default Spacing */
@@ -111,4 +117,12 @@ video {
 button {
   font-family: 'Montserrat';
   border: 0;
+}
+
+html {
+  background-color: var(--primary-800);
+}
+
+body {
+  background-color: var(--page-background);
 }

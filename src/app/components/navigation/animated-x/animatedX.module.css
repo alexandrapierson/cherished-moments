@@ -1,0 +1,47 @@
+.hamburgerMenu {
+  box-sizing: border-box;
+  --x-width: calc(var(--hamburger-height) * 1.414);
+
+  display: flex;
+  flex-direction: column;
+  gap: var(--bar-gap);
+  z-index: 2;
+  cursor: pointer;
+}
+
+.hamburgerMenu:has(input:checked)::before {
+  rotate: 45deg;
+  width: var(--x-width);
+  translate: 0 calc(var(--bar-height) / -2);
+}
+
+.hamburgerMenu:has(input:checked)::after {
+  rotate: -45deg;
+  width: var(--x-width);
+  translate: 0 calc(var(--bar-height) / 2);
+}
+
+.hamburgerMenu::before,
+.hamburgerMenu::after,
+.hamburgerMenu input {
+  content: '';
+  width: var(--bar-width);
+  height: var(--bar-height);
+  background-color: var(--primary-100);
+  border-radius: 2px;
+  transform-origin: left center;
+  transition: opacity var(--nav-animation-timing),
+    width var(--nav-animation-timing), rotate var(--nav-animation-timing),
+    translate var(--nav-animation-timing);
+}
+
+.hamburgerMenu input {
+  appearance: none;
+  outline: none;
+  pointer-events: none;
+}
+
+.hamburgerMenu input:checked {
+  width: 0%;
+  opacity: 0%;
+}
