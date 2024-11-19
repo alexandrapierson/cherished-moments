@@ -25,6 +25,8 @@
   --spacing-xl: 3.5rem;
   --spacing-xxl: 4rem;
   --spacing-xxl: 6rem;
+
+  --nav-animation-timing: 200ms ease-in-out;
 }
 
 /* Removes Default Spacing */

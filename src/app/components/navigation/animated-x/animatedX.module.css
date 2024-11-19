@@ -6,7 +6,6 @@
   --bar-height: 3px;
   --bar-gap: 5px;
   --hamburger-height: calc((var(--bar-height) * 3) + (var(--bar-gap) * 2));
-  --nav-animation-timing: 200ms ease-in-out;
 
   display: flex;
   flex-direction: column;
@@ -16,7 +15,7 @@
 
   position: absolute;
   right: 0px;
-  bottom: calc(50% - (var(--hamburger-height) / 2));
+  top: 21px;
   width: auto;
 }
 
