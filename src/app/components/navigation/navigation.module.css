@@ -1,3 +1,11 @@
+.container {
+  position: relative;
+  --brand-name-length: 224px;
+  padding: var(--spacing-s) 0px;
+
+  min-height: 32px;
+}
+
 .navigation li {
   list-style: none;
   text-align: center;
@@ -13,18 +21,30 @@
 
 .navigation {
   height: auto;
-  padding: 8px 0px;
+
   display: grid;
-  grid-template-columns: repeat(3, 1fr) auto repeat(3, 1fr);
+  grid-template-columns: repeat(3, 1fr) var(--brand-name-length) repeat(3, 1fr);
+}
+
+.brand {
+  color: var(--primary-50);
+  font-size: 1.5rem;
+  display: inline-block;
+  font-family: 'Lora';
+
+  width: auto;
+
+  position: absolute;
+  left: calc(50% - (var(--brand-name-length) / 2));
+  bottom: calc(var(--spacing-s) - 2px);
 }
 
 .navigation > li:nth-child(1) {
   grid-column-start: 2;
 }
 
-.navigation .brand a {
-  font-family: 'Lora';
-  font-size: 1.5rem;
+.navigation > li:nth-child(3) {
+  grid-column: 5/6;
 }
 
 .navigation,
@@ -41,29 +61,20 @@
     display: none;
   }
 
-  .navigation > li:nth-child(1) {
-    grid-column-start: 1;
-  }
-
-  .navigation > .brand {
-    display: block;
-    grid-column: 2 / 3;
-  }
-
-  .navigation > li:nth-child(6) {
+  .navigation > li:nth-child(5) {
     display: block;
     grid-column: 1 / 2;
     grid-row: 1/2;
+    justify-self: start;
   }
 }
 
 @media screen and (max-width: 580px) {
-  .navigation > li:nth-child(6) {
+  .navigation > li:nth-child(5) {
     display: none;
   }
 
   .navigation {
     width: 75%;
-    background: var(--primary-700);
   }
 }

@@ -1,12 +1,23 @@
 .hamburgerMenu {
   box-sizing: border-box;
+
   --x-width: calc(var(--hamburger-height) * 1.414);
+  --bar-width: 24px;
+  --bar-height: 3px;
+  --bar-gap: 5px;
+  --hamburger-height: calc((var(--bar-height) * 3) + (var(--bar-gap) * 2));
+  --nav-animation-timing: 200ms ease-in-out;
 
   display: flex;
   flex-direction: column;
   gap: var(--bar-gap);
   z-index: 2;
   cursor: pointer;
+
+  position: absolute;
+  right: 0px;
+  bottom: calc(50% - (var(--hamburger-height) / 2));
+  width: auto;
 }
 
 .hamburgerMenu:has(input:checked)::before {
@@ -36,6 +47,8 @@
 }
 
 .hamburgerMenu input {
+  border: 0px;
+  padding: 0px;
   appearance: none;
   outline: none;
   pointer-events: none;
@@ -44,4 +57,10 @@
 .hamburgerMenu input:checked {
   width: 0%;
   opacity: 0%;
+}
+
+@media screen and (min-width: 1001px) {
+  .hamburgerMenu {
+    display: none;
+  }
 }

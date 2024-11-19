@@ -1,21 +1,25 @@
-import React from 'react'
+'use client'
+
+import React, { useRef, useEffect } from 'react'
 import styles from './navigation.module.css'
 import Link from 'next/link'
 import AnimatedX from './animated-x/AnimatedX'
 
 const Navigation = () => {
   return (
-    <nav className='content-grid full-width bg-primary'>
+    <nav className={`content-grid full-width bg-primary ${styles.container}`}>
       <AnimatedX />
+
+      <Link href='/' className={styles.brand}>
+        Cherished Moments
+      </Link>
+
       <ul className={styles.navigation}>
         <li>
           <Link href='/about'>About</Link>
         </li>
         <li>
           <Link href='/services'>Services</Link>
-        </li>
-        <li className={styles.brand}>
-          <Link href='/'>Cherished Moments</Link>
         </li>
         <li>
           <Link href='/portfolio'>Portfolio</Link>
