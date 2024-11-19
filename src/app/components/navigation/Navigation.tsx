@@ -1,6 +1,6 @@
 'use client'
 
-import React, { useRef, useEffect } from 'react'
+import React from 'react'
 import styles from './navigation.module.css'
 import Link from 'next/link'
 import AnimatedX from './animated-x/AnimatedX'
