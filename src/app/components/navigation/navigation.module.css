@@ -59,6 +59,11 @@
     opacity: 0%;
   }
 
+  .container {
+    position: sticky;
+    top: 0;
+  }
+
   .navigation li {
     display: none;
   }
@@ -69,20 +74,21 @@
 
   .container:has(input:checked) {
     .navigation {
-      transition: translate var(--nav-animation-timing) opacity
-        var(--nav-animation-timing);
-      translate: calc(0% + 2rem);
-      opacity: 100%;
+      transition: translate var(--nav-animation-timing),
+        opacity var(--nav-animation-timing);
+      translate: 0%;
+      opacity: 1;
       padding: 0.5rem 1rem;
       padding-top: 4rem;
-      background-color: var(--primary-800);
+      background-color: var(--primary-900);
       color: var(--primary-50);
-      min-height: 100vh;
       width: 12rem;
+      z-index: 3;
 
-      position: absolute;
+      position: fixed;
       right: 0px;
       top: 0px;
+      bottom: 0px;
 
       display: flex;
       flex-direction: column;
@@ -92,7 +98,6 @@
       display: block;
       text-align: left;
 
-      z-index: 3;
       font-size: 1.5rem;
 
       margin-bottom: 1rem;

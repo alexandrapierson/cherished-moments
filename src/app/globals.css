@@ -121,4 +121,9 @@ html {
 
 body {
   background-color: var(--page-background);
+  overflow-x: hidden;
+}
+
+nav {
+  z-index: 4;
 }
