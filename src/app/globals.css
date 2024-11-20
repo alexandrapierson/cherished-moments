@@ -26,6 +26,8 @@
   --spacing-xxl: 4rem;
   --spacing-xxl: 6rem;
 
+  --primary-800-opacity-40: rgba(50, 50, 57, 0.4);
+
   --nav-animation-timing: 200ms ease-in-out;
 }
 

@@ -1,7 +1,7 @@
 import Link from 'next/link'
 import React from 'react'
-import Image from 'next/image'
 import styles from './footer.module.css'
+import Logo from '@/app/svg/logo'
 
 function Footer() {
   return (
@@ -46,12 +46,11 @@ function Footer() {
         </nav>
 
         {/* SVG Logo */}
-        <Image
-          src='./svg/logo.svg'
-          alt='Cherished Moments Logo'
+        <Logo
           width='200'
           height='200'
           className='logo'
+          alt='Cherished Moments Logo'
         />
 
         <form>

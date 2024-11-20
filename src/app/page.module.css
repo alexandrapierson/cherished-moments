@@ -99,10 +99,35 @@
 }
 
 .heroVideo {
-  margin: var(--spacing-m) 0px;
   object-fit: cover;
   width: 100%;
   height: auto;
+
+  background: var(--primary-800-opacity-40);
+  background-size: cover;
+}
+
+.hero {
+  margin: var(--spacing-m) 0px;
+  position: relative;
+}
+
+.hero::before {
+  content: '';
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: var(--primary-800-opacity-40);
+}
+
+.hero svg {
+  position: absolute;
+  top: calc(50% - (175px / 2));
+  left: calc(50% - (175px / 2));
+  stroke: var(--primary-50);
 }
 
 @media screen and (max-width: 875px) {

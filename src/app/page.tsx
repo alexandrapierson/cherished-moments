@@ -3,20 +3,30 @@ import styles from './page.module.css'
 import Link from 'next/link'
 import DecorativeImage from './components/decorative-image/DecorativeImage'
 import PolaroidImage from './components/polaroid-image/PolaroidImage'
+import Logo from './svg/logo'
 
 export default function Home() {
   return (
     <div className='content-grid'>
-      <video
-        width='1280'
-        height='720'
-        autoPlay
-        muted
-        loop
-        className={`${styles.heroVideo}`}
-      >
-        <source src='/videos/wedding-venue.mp4' type='video/mp4' />
-      </video>
+      <section className={`${styles.hero}`}>
+        <video
+          width='1280'
+          height='720'
+          autoPlay
+          muted
+          loop
+          className={`${styles.heroVideo}`}
+        >
+          <source src='/videos/wedding-venue.mp4' type='video/mp4' />
+        </video>
+        <Logo
+          width='200'
+          height='200'
+          className='logo'
+          color='#f4f4f6'
+          alt='Cherished Moments Logo'
+        />
+      </section>
 
       <section className={`${styles.sectionContainer}`}>
         <div className={`${styles.imageContainer}`}>
