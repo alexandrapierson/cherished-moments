@@ -31,7 +31,7 @@ export default function Home() {
       <section className={`${styles.sectionContainer}`}>
         <div className={`${styles.imageContainer}`}>
           <Image
-            src='/images/couple-pixabay.jpg'
+            src='/images/home-page/couple-pixabay.jpg'
             alt='Wedding aisle with white rose bouquets on either side.'
             width='700'
             height='800'
@@ -56,27 +56,27 @@ export default function Home() {
 
       <section className={`${styles.polaroidContainer}`}>
         <PolaroidImage
-          src='/images/couple-photo-1.jpg'
+          src='/images/home-page/couple-photo-1.jpg'
           alt=''
           caption='Hana & James'
         />
         <PolaroidImage
-          src='/images/couple-photo-2.jpg'
+          src='/images/home-page/couple-photo-2.jpg'
           alt=''
           caption='Josh & Andrea'
         />{' '}
         <PolaroidImage
-          src='/images/couple-photo-3.jpg'
+          src='/images/home-page/couple-photo-3.jpg'
           alt=''
           caption='Kyle & Hayley'
         />{' '}
         <PolaroidImage
-          src='/images/couple-photo-4.jpg'
+          src='/images/home-page/couple-photo-4.jpg'
           alt=''
           caption='Hannah & Jason'
         />
         <PolaroidImage
-          src='/images/couple-photo-5.jpg'
+          src='/images/home-page/couple-photo-5.jpg'
           alt=''
           caption='Samantha & Chris'
         />
@@ -100,25 +100,25 @@ export default function Home() {
         </div>
 
         <DecorativeImage
-          src='/images/floral-wedding-venue.jpg'
+          src='/images/home-page/floral-wedding-venue.jpg'
           alt=''
           decorativeText='Venue'
         />
 
         <DecorativeImage
-          src='/images/bride-and-groom-with-champaigne.jpg'
+          src='/images/home-page/bride-and-groom-with-champaigne.jpg'
           alt=''
           decorativeText='Attire'
         />
 
         <DecorativeImage
-          src='/images/die-cut-wedding-stationery.jpg'
+          src='/images/home-page/die-cut-wedding-stationery.jpg'
           alt=''
           decorativeText='Stationery'
         />
 
         <DecorativeImage
-          src='/images/pouring-wine-for-wedding-guests.jpg'
+          src='/images/home-page/pouring-wine-for-wedding-guests.jpg'
           alt=''
           decorativeText='Catering'
         />
@@ -127,7 +127,7 @@ export default function Home() {
       <section className={`${styles.sectionContainer}`}>
         <div className={styles.imageContainer}>
           <Image
-            src='/images/emily-and-james-couple-photo-2024.jpg'
+            src='/images/home-page/emily-and-james-couple-photo-2024.jpg'
             alt=''
             width='700'
             height='800'

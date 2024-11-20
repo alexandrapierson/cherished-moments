@@ -1,0 +1,22 @@
+.hero {
+  margin: var(--spacing-m) 0px;
+}
+
+.sectionContainer {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: var(--spacing-l);
+
+  align-items: center;
+  margin-bottom: var(--spacing-l);
+}
+
+.sectionContainer img {
+  height: 50vh;
+}
+
+.textContainer {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-l);
+}
