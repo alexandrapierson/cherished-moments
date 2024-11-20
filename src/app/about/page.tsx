@@ -1,6 +1,7 @@
 import Image from 'next/image'
 import React from 'react'
 import styles from './page.module.css'
+import TeamMemberInfo from '../components/team-member-info/TeamMemberInfo'
 
 const About = () => {
   return (
@@ -35,6 +36,35 @@ const About = () => {
           height='800'
         />
       </section>
+
+      <main>
+        <TeamMemberInfo
+          name='Olivia Thompson'
+          role='Lead Wedding Planner'
+          quote='I love helping couples create the wedding of their dreams. There’s something magical about seeing their faces when everything comes together on the big day. It’s the best feeling in the world knowing I played a part in such an important moment.'
+          weddingTradition='Personalized vows – it’s always so touching to hear couples express their love in their own words.'
+          imageSrc=''
+          firstName='Olivia'
+        />
+
+        <TeamMemberInfo
+          name=''
+          role=''
+          quote=''
+          weddingTradition=''
+          imageSrc=''
+          firstName=''
+        />
+
+        <TeamMemberInfo
+          name=''
+          role=''
+          quote=''
+          weddingTradition=''
+          imageSrc=''
+          firstName=''
+        />
+      </main>
     </div>
   )
 }
