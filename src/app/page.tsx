@@ -60,21 +60,25 @@ export default function Home() {
           alt=''
           caption='Hana & James'
         />
+
         <PolaroidImage
           src='/images/home-page/couple-photo-2.jpg'
           alt=''
           caption='Josh & Andrea'
-        />{' '}
+        />
+
         <PolaroidImage
           src='/images/home-page/couple-photo-3.jpg'
           alt=''
           caption='Kyle & Hayley'
-        />{' '}
+        />
+
         <PolaroidImage
           src='/images/home-page/couple-photo-4.jpg'
           alt=''
           caption='Hannah & Jason'
         />
+
         <PolaroidImage
           src='/images/home-page/couple-photo-5.jpg'
           alt=''

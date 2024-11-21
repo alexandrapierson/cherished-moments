@@ -13,6 +13,7 @@
 
 .sectionContainer img {
   height: 50vh;
+  max-height: 400px;
 }
 
 .textContainer {

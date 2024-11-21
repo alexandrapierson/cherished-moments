@@ -48,37 +48,42 @@
 }
 
 .polaroidContainer {
-  position: relative;
-  display: flex;
-  flex-direction: row;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
 
-  max-width: 100%;
   align-content: center;
   margin-bottom: var(--spacing-xl);
+
+  --polaroidWidth: calc(var(--content-min-width) * (4 / 9));
+  --shiftFactor: calc(1 / 4);
+}
+
+.polaroidContainer > * {
+  width: 150%;
+  z-index: 0;
 }
 
 .polaroidContainer > :nth-child(2) {
-  position: absolute;
-  transform: translateX(75%);
+  transform: translateX(calc(var(--polaroidWidth) * (1 - 2)));
   z-index: 1;
 }
 
 .polaroidContainer > :nth-child(3) {
-  position: absolute;
-  transform: translateX(150%);
+  transform: translateX(calc(var(--polaroidWidth) * (1 - 3)));
   z-index: 2;
 }
 
 .polaroidContainer > :nth-child(4) {
-  position: absolute;
-  transform: translateX(225%);
+  transform: translateX(calc(var(--polaroidWidth) * (1 - 4)));
   z-index: 1;
 }
 
 .polaroidContainer > :nth-child(5) {
-  position: absolute;
-  transform: translateX(300%);
+  transform: translateX(calc(var(--polaroidWidth) * (1 - 5)));
   z-index: 0;
+}
+
+@media screen and (max-width: 1024px) {
 }
 
 .decorativeLine {

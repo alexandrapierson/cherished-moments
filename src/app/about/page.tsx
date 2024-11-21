@@ -48,21 +48,21 @@ const About = () => {
         />
 
         <TeamMemberInfo
-          name=''
-          role=''
-          quote=''
-          weddingTradition=''
+          name='Ethan Martinez'
+          role='Event Coordinator'
+          quote='For me, it’s all about making sure everything runs perfectly so couples can focus on enjoying their day. There’s nothing better than seeing everyone laughing, dancing, and having the time of their lives, knowing I helped make that happen.'
+          weddingTradition='Father Daughter Dance - I always tear up during the father-daughter dance. It’s such an emotional moment, full of love and memories.'
           imageSrc=''
-          firstName=''
+          firstName='Ethan'
         />
 
         <TeamMemberInfo
-          name=''
-          role=''
-          quote=''
-          weddingTradition=''
+          name='Sarah Patel'
+          role='Floral Designer'
+          quote='Flowers are my love language. There’s something so special about picking the perfect flowers to match a couple’s vibe and seeing their faces light up when they see it all come to life.'
+          weddingTradition='Handwritten Vows - The vows always get me. The emotion and love they share in that moment is so raw and beautiful.'
           imageSrc=''
-          firstName=''
+          firstName='Sarah'
         />
       </main>
     </div>
