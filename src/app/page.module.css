@@ -55,11 +55,9 @@
   margin-bottom: var(--spacing-xl);
 
   --polaroidWidth: calc(var(--content-min-width) * (4 / 9));
-  --shiftFactor: calc(1 / 4);
 }
 
 .polaroidContainer > * {
-  width: 150%;
   z-index: 0;
 }
 
@@ -84,6 +82,9 @@
 }
 
 @media screen and (max-width: 1024px) {
+  .polaroidContainer {
+    --polaroidWidth: calc(var(--content-min-width) * (4 / 9));
+  }
 }
 
 .decorativeLine {

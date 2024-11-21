@@ -57,31 +57,31 @@ export default function Home() {
       <section className={`${styles.polaroidContainer}`}>
         <PolaroidImage
           src='/images/home-page/couple-photo-1.jpg'
-          alt=''
+          alt='Hana & James Wedding Photo'
           caption='Hana & James'
         />
 
         <PolaroidImage
           src='/images/home-page/couple-photo-2.jpg'
-          alt=''
+          alt='Josh & Andrea Wedding Photo'
           caption='Josh & Andrea'
         />
 
         <PolaroidImage
           src='/images/home-page/couple-photo-3.jpg'
-          alt=''
+          alt='Kyle & Hayler Wedding Photo'
           caption='Kyle & Hayley'
         />
 
         <PolaroidImage
           src='/images/home-page/couple-photo-4.jpg'
-          alt=''
+          alt='Hannah & Jason Wedding Photo'
           caption='Hannah & Jason'
         />
 
         <PolaroidImage
           src='/images/home-page/couple-photo-5.jpg'
-          alt=''
+          alt='Samantha & Chris Wedding Photo'
           caption='Samantha & Chris'
         />
       </section>
@@ -105,25 +105,25 @@ export default function Home() {
 
         <DecorativeImage
           src='/images/home-page/floral-wedding-venue.jpg'
-          alt=''
+          alt='Wedding hall with vibrant flower center pieces on carefully crafted circle tables. Fit to serve a wedding of over 100 people.'
           decorativeText='Venue'
         />
 
         <DecorativeImage
           src='/images/home-page/bride-and-groom-with-champaigne.jpg'
-          alt=''
+          alt='Groom holding champaign glasses with brides arm linked around his elbow.'
           decorativeText='Attire'
         />
 
         <DecorativeImage
           src='/images/home-page/die-cut-wedding-stationery.jpg'
-          alt=''
+          alt='Wedding invitations that have been die cut with a floral design and a silk ribbon tying the trifold shut.'
           decorativeText='Stationery'
         />
 
         <DecorativeImage
           src='/images/home-page/pouring-wine-for-wedding-guests.jpg'
-          alt=''
+          alt='Wedding guest pouring champaign for another guest at a long filled table.'
           decorativeText='Catering'
         />
       </section>
@@ -132,7 +132,7 @@ export default function Home() {
         <div className={styles.imageContainer}>
           <Image
             src='/images/home-page/emily-and-james-couple-photo-2024.jpg'
-            alt=''
+            alt='Emily & James Wedding Photo'
             width='700'
             height='800'
           />

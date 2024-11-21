@@ -122,6 +122,7 @@ html {
 body {
   background-color: var(--page-background);
   overflow-x: hidden;
+  margin: 0;
 }
 
 nav {
