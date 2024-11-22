@@ -28,8 +28,8 @@ export default function Home() {
         />
       </section>
 
-      <section className={`${styles.sectionContainer}`}>
-        <div className={`${styles.imageContainer}`}>
+      <section className={`image-text-section`}>
+        <div className={`image-container`}>
           <Image
             src='/images/home-page/couple-pixabay.jpg'
             alt='Wedding aisle with white rose bouquets on either side.'
@@ -37,9 +37,9 @@ export default function Home() {
             height='800'
           />
         </div>
-        <div className={`${styles.textContainer}`}>
-          <h1>Plan your wedding with us</h1>
-          <p>
+        <div className={`text-container`}>
+          <h1 className='margin-s'>Plan your wedding with us</h1>
+          <p className='margin-m'>
             Your wedding day is one of the most memorable moments of your life,
             and we’re here to make it unforgettable. From the initial planning
             stages to the final touches, our dedicated team will guide you every
@@ -88,8 +88,8 @@ export default function Home() {
 
       <section className={`${styles.servicesContainer} ${styles.rightImage}`}>
         <div className={`${styles.textContainer}`}>
-          <h2>Our Wedding Planning Services</h2>
-          <p>
+          <h2 className='margin-s'>Our Wedding Planning Services</h2>
+          <p className='margin-m'>
             We offer a full suite of wedding planning services to bring your
             vision to life. Whether you need help with every detail or just a
             few final touches, our expert team is here to make the process
@@ -128,8 +128,8 @@ export default function Home() {
         />
       </section>
 
-      <section className={`${styles.sectionContainer}`}>
-        <div className={styles.imageContainer}>
+      <section className='image-text-section'>
+        <div className='image-container'>
           <Image
             src='/images/home-page/emily-and-james-couple-photo-2024.jpg'
             alt='Emily & James Wedding Photo'
@@ -137,9 +137,9 @@ export default function Home() {
             height='800'
           />
         </div>
-        <div className={`${styles.testimonialContainer}`}>
-          <h3>Emily & James</h3>
-          <p>Full Service Planning</p>
+        <div className={`text-container ${styles.testimonialContainer}`}>
+          <h3 className='margin-xs'>Emily & James</h3>
+          <p className='margin-m'>Full Service Planning</p>
           <blockquote>
             &quot;Our wedding was everything we dreamed of and more! From the
             first meeting to the final moments of our big day, the team took

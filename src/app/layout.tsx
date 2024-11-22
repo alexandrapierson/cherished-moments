@@ -2,6 +2,8 @@ import type { Metadata } from 'next'
 import './globals.css'
 import './globals.fonts.css'
 import './globals.form.css'
+import './globals.container.css'
+import './globals.spacing.css'
 import Navigation from './components/navigation/Navigation'
 import Footer from './components/footer/Footer'
 

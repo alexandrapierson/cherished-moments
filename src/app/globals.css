@@ -1,5 +1,6 @@
 /* Set Up Variables to be Used Across Application */
 :root {
+  /* Primary Colors */
   --primary-950: #0c0c0e;
   --primary-900: #1a1a1e;
   --primary-800: #323239;
@@ -12,29 +13,24 @@
   --primary-100: #e9e9ec;
   --primary-50: #f4f4f6;
 
+  /* Primary Dark Opacities */
+  --primary-800-opacity-40: rgba(50, 50, 57, 0.4);
+
+  /* Form Colors */
   --green: #86daa1;
   --red: #f68989;
 
+  /* Page Background */
   --page-background: #fff;
 
-  --spacing-xxs: 0.25rem;
-  --spacing-xs: 0.5rem;
-  --spacing-s: 1rem;
-  --spacing-m: 2rem;
-  --spacing-l: 3rem;
-  --spacing-xl: 3.5rem;
-  --spacing-xxl: 4rem;
-  --spacing-xxl: 6rem;
-
-  --primary-800-opacity-40: rgba(50, 50, 57, 0.4);
-
+  /* Animation Timing */
   --nav-animation-timing: 200ms ease-in-out;
 
+  /* Container Variables */
   --padding-inline: 2rem;
   --content-max-width: 120ch;
   --content-min-width: calc(100% - (var(--padding-inline) * 2));
   --breakout-max-width: 140ch;
-
   --breakout-size: calc(
     (var(--breakout-max-width) - var(--content-max-width)) / 2
   );
@@ -44,6 +40,12 @@
 * {
   margin: 0px;
   padding: 0px;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
 }
 
 .bg-primary {
@@ -78,6 +80,7 @@
   grid-template-columns: inherit;
 }
 
+/* Image and Video */
 img {
   width: 100%;
   max-height: 60vh;
@@ -88,6 +91,7 @@ video {
   width: 100%;
 }
 
+/* Primary Buttons */
 .primary-button {
   background-color: var(--primary-900);
   color: var(--primary-100);
@@ -104,15 +108,19 @@ video {
   color: var(--primary-900);
 }
 
+button {
+  font-family: 'Montserrat';
+  border: 0;
+}
+
 .logo {
   aspect-ratio: 1/1;
   width: clamp(100px, 100%, 175px);
   height: clamp(100px, 100%, 175px);
 }
 
-button {
-  font-family: 'Montserrat';
-  border: 0;
+nav {
+  z-index: 4;
 }
 
 html {
@@ -123,8 +131,4 @@ body {
   background-color: var(--page-background);
   overflow-x: hidden;
   margin: 0;
-}
-
-nav {
-  z-index: 4;
 }

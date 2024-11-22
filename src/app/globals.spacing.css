@@ -1,0 +1,42 @@
+:root {
+  --spacing-xxs: 0.25rem;
+  --spacing-xs: 0.5rem;
+  --spacing-s: 1rem;
+  --spacing-m: 2rem;
+  --spacing-l: 3rem;
+  --spacing-xl: 3.5rem;
+  --spacing-xxl: 4rem;
+  --spacing-xxl: 6rem;
+}
+
+.margin-xxs {
+  margin-bottom: var(--spacing-xxs);
+}
+
+.margin-xs {
+  margin-bottom: var(--spacing-xs);
+}
+
+.margin-s {
+  margin-bottom: var(--spacing-s);
+}
+
+.margin-m {
+  margin-bottom: var(--spacing-m);
+}
+
+.margin-l {
+  margin-bottom: var(--spacing-l);
+}
+
+.margin-xl {
+  margin-bottom: var(--spacing-xl);
+}
+
+.margin-xxl {
+  margin-bottom: var(--spacing-xxl);
+}
+
+.margin-xxxl {
+  margin-bottom: var(--spacing-xxxl);
+}

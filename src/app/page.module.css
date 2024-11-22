@@ -1,20 +1,3 @@
-.sectionContainer {
-  display: grid;
-  align-items: center;
-
-  gap: var(--spacing-l);
-  grid-template-columns: 1fr 2fr;
-  margin-bottom: var(--spacing-xxl);
-}
-
-.testimonialContainer > p {
-  margin-bottom: var(--spacing-m);
-}
-
-.testimonialContainer > h3 {
-  margin-bottom: var(--spacing-xs);
-}
-
 .servicesContainer {
   display: grid;
   align-items: center;
@@ -24,22 +7,9 @@
   margin-bottom: var(--spacing-xxl);
 }
 
-.sectionContainer img,
 .servicesContainer img {
   width: clamp(100px, 100%, 350px);
   height: 400px;
-}
-
-.textContainer {
-  display: flex;
-  flex-direction: column;
-  gap: var(--spacing-m);
-  grid-column: 2 / 4;
-}
-
-.rightImage > .textContainer {
-  grid-column: 1 / 2;
-  grid-row: 1 / 2;
 }
 
 .servicesContainer > .textContainer {
@@ -48,60 +18,11 @@
 }
 
 .polaroidContainer {
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
+  display: flex;
+  flex-direction: row;
 
   align-content: center;
   margin-bottom: var(--spacing-xl);
-
-  --polaroidWidth: calc(var(--content-min-width) * (4 / 9));
-}
-
-.polaroidContainer > * {
-  z-index: 0;
-}
-
-.polaroidContainer > :nth-child(2) {
-  transform: translateX(calc(var(--polaroidWidth) * (1 - 2)));
-  z-index: 1;
-}
-
-.polaroidContainer > :nth-child(3) {
-  transform: translateX(calc(var(--polaroidWidth) * (1 - 3)));
-  z-index: 2;
-}
-
-.polaroidContainer > :nth-child(4) {
-  transform: translateX(calc(var(--polaroidWidth) * (1 - 4)));
-  z-index: 1;
-}
-
-.polaroidContainer > :nth-child(5) {
-  transform: translateX(calc(var(--polaroidWidth) * (1 - 5)));
-  z-index: 0;
-}
-
-@media screen and (max-width: 1024px) {
-  .polaroidContainer {
-    --polaroidWidth: calc(var(--content-min-width) * (4 / 9));
-  }
-}
-
-.decorativeLine {
-  height: 50%;
-  border-bottom: 1px solid var(--primary-950);
-}
-
-.decorativeText {
-  display: grid;
-  gap: 0.5rem;
-  max-width: 350px;
-  grid-template-columns: 24px auto 1fr;
-}
-
-.decorativeText p {
-  font-family: 'Oooh Baby';
-  font-size: 1.5rem;
 }
 
 .heroVideo {
@@ -137,13 +58,8 @@
 }
 
 @media screen and (max-width: 875px) {
-  .sectionContainer,
   .servicesContainer {
     grid-template-columns: 1fr;
-  }
-
-  .textContainer {
-    grid-column: auto;
   }
 
   .rightImage > .textContainer {

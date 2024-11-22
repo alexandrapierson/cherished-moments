@@ -18,7 +18,3 @@
   font-size: 1.5rem;
   padding: 12px 0px 16px 0px;
 }
-
-.polaroidImage:hover {
-  z-index: 3;
-}
