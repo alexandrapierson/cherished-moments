@@ -1,5 +1,4 @@
 import React from 'react'
-import styles from './teamMemberInfo.module.css'
 import PolaroidImage from '../polaroid-image/PolaroidImage'
 
 interface TeamMemberType {
