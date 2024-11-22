@@ -36,7 +36,6 @@ a,
 label {
   font-family: 'Montserrat';
   font-weight: 400;
-  width: clamp(30ch, 100%, 75ch);
   color: var(--primary-900);
   line-height: 150%;
 }

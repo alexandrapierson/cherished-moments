@@ -9,7 +9,8 @@ interface TeamMemberType {
   weddingTradition: string
   imageSrc: string
   firstName: string
-  left?: boolean
+  right?: boolean
+  id?: string
 }
 
 const TeamMemberInfo = ({
@@ -19,26 +20,27 @@ const TeamMemberInfo = ({
   weddingTradition,
   imageSrc,
   firstName,
-  left
+  right,
+  id
 }: TeamMemberType) => {
   return (
-    <article
-      className={`${styles.sectionContainer} ${left ? styles.left : ''}`}
-    >
-      <div className={styles.textContainer}>
-        <h2>{name}</h2>
-        <p className={styles.role}>{role}</p>
-        <blockquote>&quot;{quote}&quot;</blockquote>
-        <p className={styles.weddingFavorite}>
-          What part of weddings, still makes you cry?
+    <article className={`image-text-section ${right ? 'right' : ''}`} id={id}>
+      <div className='image-container'>
+        <PolaroidImage
+          alt={`${name} - ${role}`}
+          src={imageSrc}
+          caption={firstName}
+        />
+      </div>
+      <div className={`text-container`}>
+        <h2 className='margin-xxs'>{name}</h2>
+        <p className={`margin-s`}>{role}</p>
+        <blockquote className={`margin-m`}>&quot;{quote}&quot;</blockquote>
+        <p className={`margin-xs`}>
+          What part of a wedding still makes you cry?
         </p>
         <p>{weddingTradition}</p>
       </div>
-      <PolaroidImage
-        alt={`${name} - ${role}`}
-        src={imageSrc}
-        caption={firstName}
-      />
     </article>
   )
 }

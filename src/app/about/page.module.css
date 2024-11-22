@@ -2,22 +2,12 @@
   margin: var(--spacing-m) 0px;
 }
 
-.sectionContainer {
+.employeeGrid {
   display: grid;
-  grid-template-columns: 2fr 1fr;
-  gap: var(--spacing-l);
-
-  align-items: center;
-  margin-bottom: var(--spacing-l);
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--spacing-s);
 }
 
-.sectionContainer img {
-  height: 50vh;
-  max-height: 400px;
-}
-
-.textContainer {
-  display: flex;
-  flex-direction: column;
-  gap: var(--spacing-l);
+.employeeGrid img {
+  height: 300px;
 }
