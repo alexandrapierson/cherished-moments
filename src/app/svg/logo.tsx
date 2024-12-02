@@ -1,12 +1,6 @@
-interface LogoProps {
-  color?: string
-  width?: string
-  height?: string
-  className?: string
-  alt?: string
-}
+import { SVGProps } from './svgProps'
 
-const Logo: React.FC<LogoProps> = ({
+const Logo: React.FC<SVGProps> = ({
   color = '#9d9daa',
   width = '200',
   height = '200',
@@ -20,7 +14,7 @@ const Logo: React.FC<LogoProps> = ({
       aria-label={alt}
       width={width}
       height={height}
-      viewBox='0 0 201 201'
+      viewBox={`0 0 ${width} ${height}`}
       fill='none'
       xmlns='http://www.w3.org/2000/svg'
     >
