@@ -1,6 +1,6 @@
 .container {
   position: sticky;
-  --brand-name-length: 224px;
+  --brand-name-length: calc(224px + 3rem);
   padding: var(--spacing-s) 0px;
 
   min-height: 64px;
@@ -23,7 +23,7 @@
   height: auto;
 
   display: grid;
-  grid-template-columns: repeat(3, 1fr) var(--brand-name-length) repeat(3, 1fr);
+  grid-template-columns: 2fr 1fr 1fr var(--brand-name-length) 1fr 1fr 2fr;
 }
 
 .brand {
@@ -35,7 +35,7 @@
   width: auto;
 
   position: absolute;
-  left: calc(50% - (var(--brand-name-length) / 2));
+  left: calc(50% - (var(--brand-name-length) / 2 - 1.5rem));
   bottom: calc(var(--spacing-s) - 2px);
 }
 
