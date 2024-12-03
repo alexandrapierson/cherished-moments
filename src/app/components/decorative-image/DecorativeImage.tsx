@@ -7,18 +7,25 @@ interface DecorativeImage {
   src: string
   alt: string
   decorativeText: string
+  hideDecorativeText?: boolean
 }
 
 const DecorativeImage = ({
   src,
   alt = '',
-  decorativeText
+  decorativeText,
+  hideDecorativeText
 }: DecorativeImage) => {
   return (
-    <figure className={`${styles.decorativeImage}`}>
+    <figure
+      className={`${styles.decorativeImage}
+    }}`}
+    >
       <Image src={src} alt={alt} width='700' height='800' />
       <figcaption>
-        <p>{decorativeText}</p>
+        <p className={hideDecorativeText ? styles.hideText : ''}>
+          {decorativeText}
+        </p>
       </figcaption>
     </figure>
   )

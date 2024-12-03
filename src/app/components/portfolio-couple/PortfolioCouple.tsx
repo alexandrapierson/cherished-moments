@@ -96,6 +96,7 @@ const PortfolioCouple: React.FC<PortfolioCoupleProps> = ({
           src={coupleImageSrc}
           alt={coupleImageAlt}
           decorativeText={couplesName}
+          hideDecorativeText
         />
       </div>
 

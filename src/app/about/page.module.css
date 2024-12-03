@@ -1,5 +1,6 @@
 .hero {
   margin: var(--spacing-m) 0px;
+  max-height: 50vh;
 }
 
 .employeeGrid {
