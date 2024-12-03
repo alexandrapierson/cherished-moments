@@ -4,7 +4,6 @@
 }
 
 .decorativeImage img {
-  max-width: 400px;
   background-color: var(--primary-200);
 }
 

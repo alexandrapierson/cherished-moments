@@ -23,24 +23,24 @@ interface ServiceImage {
 }
 
 interface PortfolioCoupleProps {
-  couplesName?: string
-  services?: string[]
-  coupleDescription?: string
-  coupleImageSrc?: string
+  couplesName: string
+  services: string[]
+  coupleQuote: string
+  coupleImageSrc: string
   coupleImageAlt?: string
-  serviceImages?: ServiceImage[]
+  serviceImages: ServiceImage[]
 }
 
 const PortfolioCouple: React.FC<PortfolioCoupleProps> = ({
   couplesName = 'Couples Name',
   services = ['venue', 'photography', 'stationery'],
-  coupleDescription = 'Couple Description',
+  coupleQuote = 'Couple Description',
   coupleImageSrc = '',
-  coupleImageAlt = '',
+  coupleImageAlt = `${couplesName} wedding photo.`,
   serviceImages = []
 }) => {
   const getServiceIcon = (iconName: string) => {
-    switch (iconName) {
+    switch (iconName.toLowerCase()) {
       case 'attire':
         return AttireIcon
       case 'catering':
@@ -71,11 +71,11 @@ const PortfolioCouple: React.FC<PortfolioCoupleProps> = ({
   }
 
   return (
-    <section className='portfolio-couple'>
-      <div className='textContent'>
+    <section className={styles.portfolioCouple}>
+      <div className={styles.textContent}>
         <h2>{couplesName}</h2>
 
-        <div className='services'>
+        <div className={styles.services}>
           {services.map(service => {
             const Icon = getServiceIcon(service)
             return (
@@ -86,20 +86,25 @@ const PortfolioCouple: React.FC<PortfolioCoupleProps> = ({
           })}
         </div>
 
-        <p>{coupleDescription}</p>
+        <blockquote>"{coupleQuote}"</blockquote>
 
         <button className='primary-button'>{couplesName}'s Wedding</button>
       </div>
 
-      <DecorativeImage
-        src={coupleImageSrc}
-        alt={coupleImageAlt}
-        decorativeText={couplesName}
-      />
+      <div className={styles.coupleImage}>
+        <DecorativeImage
+          src={coupleImageSrc}
+          alt={coupleImageAlt}
+          decorativeText={couplesName}
+        />
+      </div>
 
       {serviceImages.map(serviceImage => {
         return (
-          <div key={`${serviceImage.serviceName}Image`}>
+          <div
+            key={`${serviceImage.serviceName}Image`}
+            className={`${styles.serviceImage}`}
+          >
             <DecorativeImage
               src={serviceImage.serviceImageSrc}
               alt={serviceImage.serviceImageAlt}
