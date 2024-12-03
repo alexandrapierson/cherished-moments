@@ -86,9 +86,9 @@ const PortfolioCouple: React.FC<PortfolioCoupleProps> = ({
           })}
         </div>
 
-        <blockquote>"{coupleQuote}"</blockquote>
+        <blockquote>&#34;{coupleQuote}&#34;</blockquote>
 
-        <button className='primary-button'>{couplesName}'s Wedding</button>
+        <button className='primary-button'>{couplesName}&#39;s Wedding</button>
       </div>
 
       <div className={styles.coupleImage}>
