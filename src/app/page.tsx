@@ -41,12 +41,12 @@ export default function Home() {
           <h1 className='margin-s'>Plan your wedding with us</h1>
           <p className='margin-m'>
             Your wedding day is one of the most memorable moments of your life,
-            and we’re here to make it unforgettable. From the initial planning
-            stages to the final touches, our dedicated team will guide you every
-            step of the way. With personalized services and a commitment to
-            bringing your vision to life, we’ll handle every detail so you can
-            focus on celebrating. Let us transform your dream into reality,
-            creating a wedding that’s perfectly you.
+            and we&#39;re here to make it unforgettable. From the initial
+            planning stages to the final touches, our dedicated team will guide
+            you every step of the way. With personalized services and a
+            commitment to bringing your vision to life, we&#39;ll handle every
+            detail so you can focus on celebrating. Let us transform your dream
+            into reality, creating a wedding that&#39;s perfectly you.
           </p>
           <Link href='#' className='primary-button'>
             Book An Appointment
@@ -143,10 +143,10 @@ export default function Home() {
           <blockquote>
             &quot;Our wedding was everything we dreamed of and more! From the
             first meeting to the final moments of our big day, the team took
-            care of every detail with so much heart and dedication. We couldn’t
-            have asked for a more perfect day, and our guests are still talking
-            about how beautiful everything was. Thank you for making our vision
-            come to life!&quot;
+            care of every detail with so much heart and dedication. We
+            couldn&#39;t have asked for a more perfect day, and our guests are
+            still talking about how beautiful everything was. Thank you for
+            making our vision come to life!&quot;
           </blockquote>
         </div>
       </section>

@@ -26,7 +26,7 @@ const Portfolio = () => {
           },
           {
             serviceImageAlt:
-              "Dani's dress day of holding her bouquet with diamond necklace.",
+              'Dani&#39;s dress day of holding her bouquet with diamond necklace.',
             serviceImageSrc:
               '/images/portfolio/dallas-and-dani/dallas-and-dani-wedding-dress-accessories.jpg',
             serviceName: 'Accessories'
@@ -40,7 +40,7 @@ const Portfolio = () => {
           },
           {
             serviceImageAlt:
-              "Dallas and Dani's wedding stationery, invitation, table placement cards, and itinerary with pink florals detailing.",
+              'Dallas and Dani&#39;s wedding stationery, invitation, table placement cards, and itinerary with pink florals detailing.',
             serviceImageSrc:
               '/images/portfolio/dallas-and-dani/dallas-and-dani-stationery.jpg',
             serviceName: 'Stationery'
