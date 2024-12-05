@@ -40,3 +40,7 @@
 .margin-xxxl {
   margin-bottom: var(--spacing-xxxl);
 }
+
+.margin-top {
+  margin-top: var(--spacing-m);
+}

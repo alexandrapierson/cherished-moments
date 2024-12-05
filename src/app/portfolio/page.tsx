@@ -2,10 +2,11 @@ import React from 'react'
 import PortfolioCouple from '../components/portfolio-couple/PortfolioCouple'
 import Image from 'next/image'
 import Link from 'next/link'
+import PolaroidCarousel from '../components/polaroid-carousel/PolaroidCarousel'
 
 const Portfolio = () => {
   return (
-    <main className='content-grid'>
+    <main className='content-grid margin-top'>
       <section className={`image-text-section right`}>
         <div className={`image-container`}>
           <Image
@@ -104,6 +105,39 @@ const Portfolio = () => {
           }
         ]}
       />
+
+      <section className='full-width'>
+        <PolaroidCarousel
+          polaroidImages={[
+            {
+              src: '/images/portfolio/jane-and-parker-couple-photo.png',
+              alt: 'Jane and Parker kissing outside of their wedding venue.',
+              caption: 'Jane & Parker'
+            },
+            {
+              src: '/images/portfolio/jane-and-parker-couple-photo.png',
+              alt: 'Jane and Parker kissing outside of their wedding venue.',
+              caption: 'Jane & Parker'
+            },
+            {
+              src: '/images/portfolio/jane-and-parker-couple-photo.png',
+              alt: 'Jane and Parker kissing outside of their wedding venue.',
+              caption: 'Jane & Parker'
+            },
+            {
+              src: '/images/portfolio/jane-and-parker-couple-photo.png',
+              alt: 'Jane and Parker kissing outside of their wedding venue.',
+              caption: 'Jane & Parker'
+            },
+            {
+              src: '/images/portfolio/jane-and-parker-couple-photo.png',
+              alt: 'Jane and Parker kissing outside of their wedding venue.',
+              caption: 'Jane & Parker'
+            }
+          ]}
+        />
+      </section>
+
       <PortfolioCouple
         couplesName='Brandon & Lily'
         services={[
