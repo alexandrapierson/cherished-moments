@@ -71,7 +71,7 @@ const PortfolioCouple: React.FC<PortfolioCoupleProps> = ({
   }
 
   return (
-    <section className={styles.portfolioCouple}>
+    <section className={`${styles.portfolioCouple} margin-xxl`}>
       <div className={styles.textContent}>
         <h2>{couplesName}</h2>
 

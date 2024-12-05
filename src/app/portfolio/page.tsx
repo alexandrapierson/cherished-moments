@@ -1,9 +1,35 @@
 import React from 'react'
 import PortfolioCouple from '../components/portfolio-couple/PortfolioCouple'
+import Image from 'next/image'
+import Link from 'next/link'
 
 const Portfolio = () => {
   return (
     <main className='content-grid'>
+      <section className={`image-text-section right`}>
+        <div className={`image-container`}>
+          <Image
+            src='/images/home-page/couple-pixabay.jpg'
+            alt='Wedding aisle with white rose bouquets on either side.'
+            width='700'
+            height='800'
+          />
+        </div>
+        <div className={`text-container`}>
+          <h1 className='margin-s'>
+            Our Pride is Creating Captivating Memories for You and Your Partner
+          </h1>
+          <p className='margin-m'>
+            At Cherished Moments, we take pride in turning each wedding into a
+            unique celebration of love. From intimate gatherings to grand
+            affairs, we design weddings that reflect the personalities and
+            dreams of those we serve. Our portfolio showcases the beauty of each
+            couple&#39;s special day, filled with heartfelt moments, stunning
+            décor, and a celebration of love in every detail. Explore our work
+            and see how we turn dreams into timeless memories.
+          </p>
+        </div>
+      </section>
       <PortfolioCouple
         couplesName='Dallas & Dani'
         services={[
@@ -45,7 +71,6 @@ const Portfolio = () => {
           }
         ]}
       />
-
       <PortfolioCouple
         couplesName='Joshua & Piper'
         services={['venue', 'catering', 'floral', 'stationery', 'event']}
@@ -79,7 +104,6 @@ const Portfolio = () => {
           }
         ]}
       />
-
       <PortfolioCouple
         couplesName='Brandon & Lily'
         services={[
@@ -120,6 +144,32 @@ const Portfolio = () => {
           }
         ]}
       />
+
+      <section className={`image-text-section`}>
+        <div className={`image-container`}>
+          <Image
+            src='/images/home-page/couple-pixabay.jpg'
+            alt='Wedding aisle with white rose bouquets on either side.'
+            width='700'
+            height='800'
+          />
+        </div>
+        <div className={`text-container`}>
+          <h1 className='margin-s'>Plan your wedding with us</h1>
+          <p className='margin-m'>
+            Your wedding day is one of the most memorable moments of your life,
+            and we&#39;re here to make it unforgettable. From the initial
+            planning stages to the final touches, our dedicated team will guide
+            you every step of the way. With personalized services and a
+            commitment to bringing your vision to life, we&#39;ll handle every
+            detail so you can focus on celebrating. Let us transform your dream
+            into reality, creating a wedding that&#39;s perfectly you.
+          </p>
+          <Link href='#' className='primary-button'>
+            Book An Appointment
+          </Link>
+        </div>
+      </section>
     </main>
   )
 }
