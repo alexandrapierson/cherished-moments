@@ -115,24 +115,24 @@ const Portfolio = () => {
               caption: 'Jane & Parker'
             },
             {
-              src: '/images/portfolio/jane-and-parker-couple-photo.png',
-              alt: 'Jane and Parker kissing outside of their wedding venue.',
-              caption: 'Jane & Parker'
+              src: '/images/portfolio/britney-and-gabriela-couple-photo.png',
+              alt: 'Britney and Gabriela holding their bouquets outside of their wedding venue.',
+              caption: 'Britney & Gabriela'
             },
             {
-              src: '/images/portfolio/jane-and-parker-couple-photo.png',
-              alt: 'Jane and Parker kissing outside of their wedding venue.',
-              caption: 'Jane & Parker'
+              src: '/images/portfolio/emily-and-james-couple-photo.png',
+              alt: 'Emily wishing on a daffodil while James adoringly watches.',
+              caption: 'Emily & James'
             },
             {
-              src: '/images/portfolio/jane-and-parker-couple-photo.png',
-              alt: 'Jane and Parker kissing outside of their wedding venue.',
-              caption: 'Jane & Parker'
+              src: '/images/portfolio/andrea-and-stephen-couple-photo.png',
+              alt: `Andrea and Stephen's after ceremony photo.`,
+              caption: 'Andrea & Stephen'
             },
             {
-              src: '/images/portfolio/jane-and-parker-couple-photo.png',
-              alt: 'Jane and Parker kissing outside of their wedding venue.',
-              caption: 'Jane & Parker'
+              src: '/images/portfolio/tiffany-and-andre-couple-photo.png',
+              alt: `Andre kissing Tiffany's hand outside of their wedding venue.`,
+              caption: 'Tiffany & Andre'
             }
           ]}
         />
