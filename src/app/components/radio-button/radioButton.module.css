@@ -1,0 +1,8 @@
+.radioItem {
+  display: block;
+  margin-bottom: 0.25rem;
+}
+
+.radioItem input {
+  margin-inline: 0.5rem;
+}

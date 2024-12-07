@@ -13,3 +13,31 @@ input:user-valid {
 input:user-invalid {
   outline-color: var(--red);
 }
+
+/* Radio Buttons */
+
+.radioItem {
+  display: block;
+  margin-bottom: 0.25rem;
+}
+
+.radioItem input {
+  margin-inline: 0.5rem;
+}
+
+.radioItem input::before {
+  content: '';
+  width: 120%;
+  height: 120%;
+  background-color: var(--primary-500);
+}
+
+/* Fieldsets */
+
+fieldset {
+  border: none;
+}
+
+fieldset legend {
+  display: none;
+}

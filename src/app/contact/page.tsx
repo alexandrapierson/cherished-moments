@@ -3,64 +3,194 @@
 import styles from './page.module.css'
 import Image from 'next/image'
 import React, { useState } from 'react'
+import RadioButton from '../components/radio-button/RadioButton'
+import Checkbox from '../components/checkbox/Checkbox'
+
+type ContactInformation = {
+  firstName: string
+  lastName: string
+  emailAddress: string
+  phoneNumber: string
+  contactMethod: string
+  contactTime: string
+}
+
+type InquiryDetail = {
+  selectedOption: string[] | string
+  otherText: string
+}
+
+type InquiryDetails = {
+  weddingRole: InquiryDetail
+  interest: InquiryDetail
+  serviceInterest: InquiryDetail
+  additionalComment: string
+}
+
+type Referral = InquiryDetail
+
+type FormData = {
+  contactInformation: ContactInformation
+  inquiryDetails: InquiryDetails
+  referral: Referral
+}
+
+type NestedForm<T> = {
+  [K in keyof T]: T[K] extends object ? [K, ...NestedForm<T[K]>] : [K]
+}[keyof T]
 
 const Contact = () => {
-  const [roleFieldSet, setRoleFieldSet] = useState({
-    selectedOption: '',
-    otherText: ''
-  })
-  const [interestFieldSet, setInterestFieldSet] = useState({
-    selectedOption: '',
-    otherText: ''
-  })
-  const [serviceFieldSet, setServiceFieldSet] = useState({
-    selectedOption: '',
-    otherText: ''
-  })
-  const [FieldSet, setAdditionalInformationFieldSet] = useState({
-    selectedOption: '',
-    otherText: ''
+  const [formData, setFormData] = useState({
+    contactInformation: {
+      firstName: '',
+      lastName: '',
+      emailAddress: '',
+      phoneNumber: '',
+      contactMethod: '',
+      contactTime: ''
+    },
+    inquiryDetails: {
+      weddingRole: {
+        selectedOption: '',
+        otherText: ''
+      },
+      interest: {
+        selectedOption: '',
+        otherText: ''
+      },
+      serviceInterest: {
+        selectedOption: [''],
+        otherText: ''
+      },
+      additionalComment: ''
+    },
+    referral: {
+      selectedOption: '',
+      otherText: ''
+    }
   })
 
-  const handleFieldsetChange = (
+  const isInquiryDetail = (field: any): field is InquiryDetail => {
+    return (
+      field &&
+      typeof field === 'object' &&
+      'selectedOption' in field &&
+      (typeof field.selectedOption === 'string' ||
+        Array.isArray(field.selectedOption)) &&
+      'otherText' in field
+    )
+  }
+
+  const handleSelectionChange = (
     e: React.ChangeEvent<HTMLInputElement>,
-    fieldsetSetter: React.Dispatch<
-      React.SetStateAction<{ selectedOption: string; otherText: string }>
-    >
+    path: NestedForm<FormData>
   ) => {
     const { value } = e.target
-    fieldsetSetter(prev => ({
-      ...prev,
-      selectedOption: value,
-      otherText: value !== 'other' ? '' : prev.otherText
-    }))
+
+    setFormData(prev => {
+      const updatedData = { ...prev }
+      const field = path.reduce((acc, key, index) => {
+        if (index === path.length - 1) {
+          if (isInquiryDetail(acc[key])) {
+            if (typeof acc[key].selectedOption === 'string') {
+              acc[key].selectedOption = value
+              acc[key].otherText =
+                value !== 'other' ? '' : acc[key].otherText || ''
+            }
+          }
+        } else {
+          acc[key] = { ...acc[key] } // Maintain immutability
+        }
+        return acc[key]
+      }, updatedData as any)
+
+      return updatedData
+    })
   }
 
   const handleOtherTextChange = (
     e: React.ChangeEvent<HTMLInputElement>,
-    fieldsetSetter: React.Dispatch<
-      React.SetStateAction<{ selectedOption: string; otherText: string }>
-    >
+    path: NestedForm<FormData>
   ) => {
     const { value } = e.target
-    fieldsetSetter(prev => ({ ...prev, otherText: value }))
+
+    setFormData(prev => {
+      const updatedData = { ...prev }
+      path.reduce((acc, key, index) => {
+        if (index === path.length - 1 && isInquiryDetail(acc[key])) {
+          acc[key].otherText = value
+        } else {
+          acc[key] = { ...acc[key] }
+        }
+        return acc[key]
+      }, updatedData as any)
+      return updatedData
+    })
+  }
+
+  const handleCheckboxChange = (
+    e: React.ChangeEvent<HTMLInputElement>,
+    path: ['serviceInterest']
+  ) => {
+    const { value, checked } = e.target
+
+    setFormData(prev => {
+      const updatedData = { ...prev }
+
+      const field = updatedData.inquiryDetails.serviceInterest
+
+      if (isInquiryDetail(field) && Array.isArray(field.selectedOption)) {
+        field.selectedOption = checked
+          ? [...field.selectedOption, value]
+          : field.selectedOption.filter(option => option !== value)
+      }
+
+      return updatedData
+    })
+  }
+
+  const handleInputChange = (
+    e: React.ChangeEvent<HTMLInputElement>,
+    path: NestedForm<FormData>
+  ) => {
+    const { name, value } = e.target
+
+    setFormData(prev => {
+      const updatedData = { ...prev }
+      path.reduce((acc, key, index) => {
+        if (index === path.length - 1) {
+          acc[key] = { ...acc[key], [name]: value }
+        } else {
+          acc[key] = { ...acc[key] }
+        }
+        return acc[key]
+      }, updatedData as any)
+      return updatedData
+    })
+  }
+
+  const validateForm = (): boolean => {
+    const { inquiryDetails } = formData
+
+    if (
+      inquiryDetails.weddingRole.selectedOption === 'other' &&
+      !inquiryDetails.weddingRole.otherText.trim()
+    ) {
+      alert("Please describe your role in the 'Other' field.")
+      return false
+    }
+
+    return true
   }
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
-    console.log(
-      'Fieldset 1:',
-      roleFieldSet.selectedOption === 'other'
-        ? roleFieldSet.otherText
-        : roleFieldSet.selectedOption
-    )
-    console.log(
-      'Fieldset 2:',
-      interestFieldSet.selectedOption === 'other'
-        ? interestFieldSet.otherText
-        : interestFieldSet.selectedOption
-    )
+    if (validateForm()) {
+      console.log(formData)
+    }
   }
+
+  console.log(formData)
 
   return (
     <div className='content-grid margin-top'>
@@ -85,78 +215,342 @@ const Contact = () => {
         </div>
       </section>
 
-      <form className={`${styles.contactForm}`}>
-        <fieldset className={`${styles.contactInformation}`}>
-          <legend>Contact Information</legend>
+      <main className={`${styles.formContainer}`}>
+        <Image
+          src='/images/home-page/couple-pixabay.jpg'
+          alt='Wedding aisle with white rose bouquest on either side.'
+          width='200'
+          height='1000'
+        />
 
-          <div>
-            <input />
-            <input />
-            <input />
-            <input />
-          </div>
+        <form className={`${styles.contactForm}`}>
+          <fieldset className={`${styles.contactInformation}`}>
+            <legend>Contact Information</legend>
 
-          <div className={`${styles.radioGroup}`}>
-            <h3>Preferred Contact Method:</h3>
-            <label className={`${styles.radioItem}`}>
-              <input type='radio' name='contactMethod' value='email' />
-              Email
-            </label>
+            <div className={`${styles.formSectionContainer}`}>
+              <h2 className='margin-s'>Contact Information</h2>
 
-            <label className={`${styles.radioItem}`}>
-              <input type='radio' name='contactMethod' value='phone' />
-              Phone Call
-            </label>
+              <div className={`${styles.contactInformationContainer} margin-m`}>
+                <input type='text' placeholder='First Name' />
+                <input type='text' placeholder='Last Name' />
+                <input type='email' placeholder='Email Address' />
+                <input type='phone' placeholder='Phone Number' />
+              </div>
+            </div>
 
-            <label className={`${styles.radioItem}`}>
-              <input type='radio' name='contactMethod' value='textMessage' />
-              Text Message
-            </label>
-          </div>
-        </fieldset>
+            <div className={`${styles.formSectionContainer} margin-m`}>
+              <h3 className='margin-xs'>Preferred Contact Method:</h3>
+              <label className={`radioItem`}>
+                <input type='radio' name='contactMethod' value='email' />
+                Email
+              </label>
 
-        <div>
-          <fieldset>
-            <legend>What best describes your role?</legend>
+              <label className={`radioItem`}>
+                <input type='radio' name='contactMethod' value='phone' />
+                Phone Call
+              </label>
 
-            <label className={`${styles.radioGroup}`}>
-              <input type='radio' name='weddingRole' value='couple' />
-              I'm a couple planning a wedding
-            </label>
-
-            <label className={`${styles.radioGroup}`}>
-              <input type='radio' name='weddingRole' value='secondary' />
-              I'm a family member or friend helping with planning a wedding
-            </label>
-
-            <label className={`${styles.radioGroup}`}>
-              <input type='radio' name='weddingRole' value='vendor' />
-              I'm a vendor interesting in collaboration (e.g., florist,
-              photographer, musician, etc.)
-            </label>
-
-            <label className={`${styles.radioGroup}`}>
-              <input type='radio' name='weddingRole' value='venue' />I represent
-              a venue or event space
-            </label>
-
-            <label className={`${styles.radioGroup}`}>
-              <input type='radio' name='weddingRole' value='exploring' />
-              I'm just exploring options / gathering information
-            </label>
-
-            <label className={`${styles.radioGroup}`}>
-              <input
-                type='radio'
-                name='weddingRole'
-                value='exploring'
-                id='other-radio'
-              />
-              I'm just exploring options / gathering information
-            </label>
+              <label className={`radioItem`}>
+                <input type='radio' name='contactMethod' value='textMessage' />
+                Text Message
+              </label>
+            </div>
           </fieldset>
-        </div>
-      </form>
+
+          <fieldset className={`${styles.inqueryDetails}`}>
+            <legend id='wedding-role-legend'>Inquery Details</legend>
+
+            <div className={`${styles.formSectionContainer} margin-m`}>
+              <h2 className='margin-xs'> What best describes your role?</h2>
+
+              {[
+                { value: 'couple', label: "I'm a couple planning a wedding" },
+                {
+                  value: 'secondary',
+                  label:
+                    "I'm a family member or friend helping with planning a wedding"
+                },
+                {
+                  value: 'vendor',
+                  label:
+                    "I'm a vendor interested in collaboration (e.g., florist, photographer, musician, etc.)"
+                },
+                { value: 'venue', label: 'I represent a venue or event space' },
+                {
+                  value: 'exploring',
+                  label: "I'm just exploring options / gathering information"
+                },
+                { value: 'other', label: 'Other' }
+              ].map(({ value, label }) => (
+                <RadioButton
+                  key={value}
+                  name='weddingRole'
+                  value={value}
+                  checked={
+                    formData.inquiryDetails.weddingRole.selectedOption === value
+                  }
+                  onChange={e =>
+                    handleSelectionChange(e, [
+                      'inquiryDetails',
+                      'weddingRole',
+                      'selectedOption'
+                    ])
+                  }
+                  label={label}
+                />
+              ))}
+
+              {formData.inquiryDetails.weddingRole.selectedOption ===
+                'other' && (
+                <input
+                  className={styles.otherInput}
+                  type='text'
+                  id='wedding-other'
+                  value={formData.inquiryDetails.weddingRole.otherText}
+                  onChange={e =>
+                    handleOtherTextChange(e, [
+                      'inquiryDetails',
+                      'weddingRole',
+                      'otherText'
+                    ])
+                  }
+                  placeholder='Please specify your role'
+                />
+              )}
+            </div>
+
+            <div className={`${styles.formSectionContainer} margin-m`}>
+              <h2 className='margin-xs'>What brings you to us?</h2>
+
+              {[
+                {
+                  value: 'learnMore',
+                  label: 'Learn more about wedding planning services'
+                },
+                {
+                  value: 'consultationMeeting',
+                  label: 'Request a consultation or meeting'
+                },
+                {
+                  value: 'pricingPackaging',
+                  label: 'Ask about pricing and packaging'
+                },
+                {
+                  value: 'vendorPartnership',
+                  label: 'Explore vendor partnership opportunities'
+                },
+                {
+                  value: 'venueRelated',
+                  label: 'Venue-related questions or partnership inquiry'
+                },
+                { value: 'other', label: 'Other' }
+              ].map(({ value, label }) => (
+                <RadioButton
+                  key={value}
+                  name='interest'
+                  value={value}
+                  checked={
+                    formData.inquiryDetails.interest.selectedOption === value
+                  }
+                  onChange={e =>
+                    handleSelectionChange(e, [
+                      'inquiryDetails',
+                      'interest',
+                      'selectedOption'
+                    ])
+                  }
+                  label={label}
+                />
+              ))}
+
+              {formData.inquiryDetails.interest.selectedOption === 'other' && (
+                <input
+                  className={styles.otherInput}
+                  type='text'
+                  id='wedding-other'
+                  value={formData.inquiryDetails.interest.otherText}
+                  onChange={e =>
+                    handleOtherTextChange(e, [
+                      'inquiryDetails',
+                      'interest',
+                      'otherText'
+                    ])
+                  }
+                  placeholder='Please specify your inquiry'
+                  aria-describedby='interest-legend'
+                />
+              )}
+            </div>
+
+            <div className={`${styles.formSectionContainer} margin-m`}>
+              <h2 className='margin-xs'>
+                What services are you interest in? (Select all that apply)
+              </h2>
+
+              {[
+                {
+                  value: 'full-service-planning',
+                  label: 'Full wedding planning services'
+                },
+                {
+                  value: 'partial-planning',
+                  label: 'Partial planning or day-of coordination'
+                },
+                {
+                  value: 'vendor-recommendations',
+                  label: 'Vendor recommendations'
+                },
+                {
+                  value: 'design-decor-theme',
+                  label: 'Design, decor, or theme consultation'
+                },
+                {
+                  value: 'destination-wedding-planning',
+                  label: 'Destination wedding planning'
+                },
+                {
+                  value: 'budget-planning',
+                  label: 'Budget planning assistance'
+                },
+                { value: 'other', label: 'Other' }
+              ].map(({ value, label }) => (
+                <Checkbox
+                  key={value}
+                  name='serviceInterest'
+                  value={value}
+                  checked={formData.inquiryDetails.serviceInterest.selectedOption.includes(
+                    value
+                  )}
+                  onChange={e => handleCheckboxChange(e, ['serviceInterest'])}
+                  label={label}
+                />
+              ))}
+              {formData.inquiryDetails.serviceInterest.selectedOption.includes(
+                'other'
+              ) && (
+                <input
+                  className={styles.otherInput}
+                  type='text'
+                  id='service-interest-other'
+                  value={formData.inquiryDetails.serviceInterest.otherText}
+                  onChange={e =>
+                    handleOtherTextChange(e, [
+                      'inquiryDetails',
+                      'serviceInterest',
+                      'otherText'
+                    ])
+                  }
+                  placeholder='Describe what services you are interested in'
+                />
+              )}
+            </div>
+
+            <div className={`${styles.formSectionContainer} margin-m`}>
+              <h3 className='margin-xs'>
+                Please share any additonal details, questions, or specific
+                needs.
+              </h3>
+
+              <input type='text' placeholder='Additional Comments...' />
+            </div>
+
+            <div className={`${styles.formSectionContainer} margin-m`}>
+              <h2 className='margin-xs'>How did you hear about us?</h2>
+
+              {[
+                {
+                  value: 'friend-or-family',
+                  label: 'Referral from friend or family'
+                },
+                {
+                  value: 'social-media',
+                  label: 'Social Media (Instagram, Facebook, etc.)'
+                },
+                {
+                  value: 'search-engine',
+                  label: 'Search Engine (Google, Bing, etc.)'
+                },
+                {
+                  value: 'wedding-site',
+                  label: 'Wedding Site (The Knot, Zola, etc.)'
+                },
+                {
+                  value: 'venue-recommendation',
+                  label: 'Venue Recommendation'
+                },
+                { value: 'other', label: 'Other' }
+              ].map(({ value, label }) => (
+                <RadioButton
+                  key={value}
+                  name='referral'
+                  value={value}
+                  checked={formData.referral.selectedOption === value}
+                  onChange={e =>
+                    handleSelectionChange(e, ['referral', 'selectedOption'])
+                  }
+                  label={label}
+                />
+              ))}
+              {formData.inquiryDetails.serviceInterest.selectedOption.includes(
+                'other'
+              ) && (
+                <input
+                  className={styles.otherInput}
+                  type='text'
+                  id='service-interest-other'
+                  value={formData.inquiryDetails.serviceInterest.otherText}
+                  onChange={e =>
+                    handleOtherTextChange(e, [
+                      'inquiryDetails',
+                      'serviceInterest',
+                      'otherText'
+                    ])
+                  }
+                  placeholder='Describe what services you are interested in'
+                />
+              )}
+            </div>
+
+            <div className={`${styles.formSectionContainer} margin-m`}>
+              <h2 className='margin-xs'>
+                When is the best time for us to contact you?
+              </h2>
+
+              {[
+                {
+                  value: 'morning',
+                  label: 'Morning (9am - 12pm)'
+                },
+                {
+                  value: 'afternoon',
+                  label: 'Afternoon (12pm - 5pm)'
+                },
+                {
+                  value: 'evening',
+                  label: 'Evening (5pm - 8pm)'
+                },
+                {
+                  value: 'no-preference',
+                  label: 'No Preference'
+                }
+              ].map(({ value, label }) => (
+                <RadioButton
+                  key={value}
+                  name='referral'
+                  value={value}
+                  checked={formData.referral.selectedOption === value}
+                  onChange={e =>
+                    handleSelectionChange(e, ['referral', 'selectedOption'])
+                  }
+                  label={label}
+                />
+              ))}
+            </div>
+          </fieldset>
+
+          <button className='primary-button'>Submit</button>
+        </form>
+      </main>
     </div>
   )
 }
