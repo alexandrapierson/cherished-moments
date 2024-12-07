@@ -70,14 +70,14 @@ const Contact = () => {
     }
   })
 
-  const isInquiryDetail = (field: any): field is InquiryDetail => {
+  const isInquiryDetail = (field: unknown): field is InquiryDetail => {
     return (
-      field &&
       typeof field === 'object' &&
+      field !== null &&
       'selectedOption' in field &&
-      (typeof field.selectedOption === 'string' ||
-        Array.isArray(field.selectedOption)) &&
-      'otherText' in field
+      'otherText' in field &&
+      (typeof (field as InquiryDetail).selectedOption === 'string' ||
+        Array.isArray((field as InquiryDetail).selectedOption))
     )
   }
 
@@ -89,7 +89,7 @@ const Contact = () => {
 
     setFormData(prev => {
       const updatedData = { ...prev }
-      const field = path.reduce((acc, key, index) => {
+      path.reduce((acc: any, key, index) => {
         if (index === path.length - 1) {
           if (isInquiryDetail(acc[key])) {
             if (typeof acc[key].selectedOption === 'string') {
@@ -102,7 +102,7 @@ const Contact = () => {
           acc[key] = { ...acc[key] } // Maintain immutability
         }
         return acc[key]
-      }, updatedData as any)
+      }, updatedData)
 
       return updatedData
     })
@@ -116,22 +116,19 @@ const Contact = () => {
 
     setFormData(prev => {
       const updatedData = { ...prev }
-      path.reduce((acc, key, index) => {
+      path.reduce((acc: any, key, index) => {
         if (index === path.length - 1 && isInquiryDetail(acc[key])) {
           acc[key].otherText = value
         } else {
           acc[key] = { ...acc[key] }
         }
         return acc[key]
-      }, updatedData as any)
+      }, updatedData)
       return updatedData
     })
   }
 
-  const handleCheckboxChange = (
-    e: React.ChangeEvent<HTMLInputElement>,
-    path: ['serviceInterest']
-  ) => {
+  const handleCheckboxChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { value, checked } = e.target
 
     setFormData(prev => {
@@ -157,14 +154,14 @@ const Contact = () => {
 
     setFormData(prev => {
       const updatedData = { ...prev }
-      path.reduce((acc, key, index) => {
+      path.reduce((acc: any, key, index) => {
         if (index === path.length - 1) {
           acc[key] = { ...acc[key], [name]: value }
         } else {
           acc[key] = { ...acc[key] }
         }
         return acc[key]
-      }, updatedData as any)
+      }, updatedData)
       return updatedData
     })
   }
@@ -190,8 +187,6 @@ const Contact = () => {
     }
   }
 
-  console.log(formData)
-
   return (
     <div className='content-grid margin-top'>
       <section className={`image-text-section right`}>
@@ -215,7 +210,7 @@ const Contact = () => {
         </div>
       </section>
 
-      <main className={`${styles.formContainer}`}>
+      <main className={`${styles.formContainer} margin-xxl`}>
         <Image
           src='/images/home-page/couple-pixabay.jpg'
           alt='Wedding aisle with white rose bouquest on either side.'
@@ -421,7 +416,7 @@ const Contact = () => {
                   checked={formData.inquiryDetails.serviceInterest.selectedOption.includes(
                     value
                   )}
-                  onChange={e => handleCheckboxChange(e, ['serviceInterest'])}
+                  onChange={e => handleCheckboxChange(e)}
                   label={label}
                 />
               ))}
@@ -548,7 +543,9 @@ const Contact = () => {
             </div>
           </fieldset>
 
-          <button className='primary-button'>Submit</button>
+          <button className='primary-button' onClick={e => handleSubmit}>
+            Submit
+          </button>
         </form>
       </main>
     </div>
