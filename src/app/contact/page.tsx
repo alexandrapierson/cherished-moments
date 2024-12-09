@@ -6,28 +6,28 @@ import React, { useState } from 'react'
 import RadioButton from '../components/radio-button/RadioButton'
 import Checkbox from '../components/checkbox/Checkbox'
 
-type ContactInformation = {
-  firstName: string
-  lastName: string
-  emailAddress: string
-  phoneNumber: string
-  contactMethod: string
-  contactTime: string
-}
+// type ContactInformation = {
+//   firstName: string
+//   lastName: string
+//   emailAddress: string
+//   phoneNumber: string
+//   contactMethod: string
+//   contactTime: string
+// }
 
-type InquiryDetail = {
-  selectedOption: string[] | string
-  otherText: string
-}
+// type InquiryDetail = {
+//   selectedOption: string[] | string
+//   otherText: string
+// }
 
-type InquiryDetails = {
-  weddingRole: InquiryDetail
-  interest: InquiryDetail
-  serviceInterest: InquiryDetail
-  additionalComment: string
-}
+// type InquiryDetails = {
+//   weddingRole: InquiryDetail
+//   interest: InquiryDetail
+//   serviceInterest: InquiryDetail
+//   additionalComment: string
+// }
 
-type Referral = InquiryDetail
+// type Referral = InquiryDetail
 
 // type FormData = {
 //   contactInformation: ContactInformation
@@ -40,7 +40,7 @@ type Referral = InquiryDetail
 // }[keyof T]
 
 const Contact = () => {
-  const [formData, setFormData] = useState({
+  const [formData] = useState({
     contactInformation: {
       firstName: '',
       lastName: '',
