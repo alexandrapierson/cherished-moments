@@ -29,15 +29,15 @@ type InquiryDetails = {
 
 type Referral = InquiryDetail
 
-type FormData = {
-  contactInformation: ContactInformation
-  inquiryDetails: InquiryDetails
-  referral: Referral
-}
+// type FormData = {
+//   contactInformation: ContactInformation
+//   inquiryDetails: InquiryDetails
+//   referral: Referral
+// }
 
-type NestedForm<T> = {
-  [K in keyof T]: T[K] extends object ? [K, ...NestedForm<T[K]>] : [K]
-}[keyof T]
+// type NestedForm<T> = {
+//   [K in keyof T]: T[K] extends object ? [K, ...NestedForm<T[K]>] : [K]
+// }[keyof T]
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -70,122 +70,122 @@ const Contact = () => {
     }
   })
 
-  const isInquiryDetail = (field: unknown): field is InquiryDetail => {
-    return (
-      typeof field === 'object' &&
-      field !== null &&
-      'selectedOption' in field &&
-      'otherText' in field &&
-      (typeof (field as InquiryDetail).selectedOption === 'string' ||
-        Array.isArray((field as InquiryDetail).selectedOption))
-    )
-  }
+  // const isInquiryDetail = (field: unknown): field is InquiryDetail => {
+  //   return (
+  //     typeof field === 'object' &&
+  //     field !== null &&
+  //     'selectedOption' in field &&
+  //     'otherText' in field &&
+  //     (typeof (field as InquiryDetail).selectedOption === 'string' ||
+  //       Array.isArray((field as InquiryDetail).selectedOption))
+  //   )
+  // }
 
-  const handleSelectionChange = (
-    e: React.ChangeEvent<HTMLInputElement>,
-    path: NestedForm<FormData>
-  ) => {
-    const { value } = e.target
+  // const handleSelectionChange = (
+  //   e: React.ChangeEvent<HTMLInputElement>,
+  //   path: NestedForm<FormData>
+  // ) => {
+  //   const { value } = e.target
 
-    setFormData(prev => {
-      const updatedData = { ...prev }
-      path.reduce((acc: any, key, index) => {
-        if (index === path.length - 1) {
-          if (isInquiryDetail(acc[key])) {
-            if (typeof acc[key].selectedOption === 'string') {
-              acc[key].selectedOption = value
-              acc[key].otherText =
-                value !== 'other' ? '' : acc[key].otherText || ''
-            }
-          }
-        } else {
-          acc[key] = { ...acc[key] } // Maintain immutability
-        }
-        return acc[key]
-      }, updatedData)
+  //   setFormData(prev => {
+  //     const updatedData = { ...prev }
+  //     path.reduce((acc: any, key, index) => {
+  //       if (index === path.length - 1) {
+  //         if (isInquiryDetail(acc[key])) {
+  //           if (typeof acc[key].selectedOption === 'string') {
+  //             acc[key].selectedOption = value
+  //             acc[key].otherText =
+  //               value !== 'other' ? '' : acc[key].otherText || ''
+  //           }
+  //         }
+  //       } else {
+  //         acc[key] = { ...acc[key] } // Maintain immutability
+  //       }
+  //       return acc[key]
+  //     }, updatedData)
 
-      return updatedData
-    })
-  }
+  //     return updatedData
+  //   })
+  // }
 
-  const handleOtherTextChange = (
-    e: React.ChangeEvent<HTMLInputElement>,
-    path: NestedForm<FormData>
-  ) => {
-    const { value } = e.target
+  // const handleOtherTextChange = (
+  //   e: React.ChangeEvent<HTMLInputElement>,
+  //   path: NestedForm<FormData>
+  // ) => {
+  //   const { value } = e.target
 
-    setFormData(prev => {
-      const updatedData = { ...prev }
-      path.reduce((acc: any, key, index) => {
-        if (index === path.length - 1 && isInquiryDetail(acc[key])) {
-          acc[key].otherText = value
-        } else {
-          acc[key] = { ...acc[key] }
-        }
-        return acc[key]
-      }, updatedData)
-      return updatedData
-    })
-  }
+  //   setFormData(prev => {
+  //     const updatedData = { ...prev }
+  //     path.reduce((acc: any, key, index) => {
+  //       if (index === path.length - 1 && isInquiryDetail(acc[key])) {
+  //         acc[key].otherText = value
+  //       } else {
+  //         acc[key] = { ...acc[key] }
+  //       }
+  //       return acc[key]
+  //     }, updatedData)
+  //     return updatedData
+  //   })
+  // }
 
-  const handleCheckboxChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const { value, checked } = e.target
+  // const handleCheckboxChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  //   const { value, checked } = e.target
 
-    setFormData(prev => {
-      const updatedData = { ...prev }
+  //   setFormData(prev => {
+  //     const updatedData = { ...prev }
 
-      const field = updatedData.inquiryDetails.serviceInterest
+  //     const field = updatedData.inquiryDetails.serviceInterest
 
-      if (isInquiryDetail(field) && Array.isArray(field.selectedOption)) {
-        field.selectedOption = checked
-          ? [...field.selectedOption, value]
-          : field.selectedOption.filter(option => option !== value)
-      }
+  //     if (isInquiryDetail(field) && Array.isArray(field.selectedOption)) {
+  //       field.selectedOption = checked
+  //         ? [...field.selectedOption, value]
+  //         : field.selectedOption.filter(option => option !== value)
+  //     }
 
-      return updatedData
-    })
-  }
+  //     return updatedData
+  //   })
+  // }
 
-  const handleInputChange = (
-    e: React.ChangeEvent<HTMLInputElement>,
-    path: NestedForm<FormData>
-  ) => {
-    const { name, value } = e.target
+  // const handleInputChange = (
+  //   e: React.ChangeEvent<HTMLInputElement>,
+  //   path: NestedForm<FormData>
+  // ) => {
+  //   const { name, value } = e.target
 
-    setFormData(prev => {
-      const updatedData = { ...prev }
-      path.reduce((acc: any, key, index) => {
-        if (index === path.length - 1) {
-          acc[key] = { ...acc[key], [name]: value }
-        } else {
-          acc[key] = { ...acc[key] }
-        }
-        return acc[key]
-      }, updatedData)
-      return updatedData
-    })
-  }
+  //   setFormData(prev => {
+  //     const updatedData = { ...prev }
+  //     path.reduce((acc: any, key, index) => {
+  //       if (index === path.length - 1) {
+  //         acc[key] = { ...acc[key], [name]: value }
+  //       } else {
+  //         acc[key] = { ...acc[key] }
+  //       }
+  //       return acc[key]
+  //     }, updatedData)
+  //     return updatedData
+  //   })
+  // }
 
-  const validateForm = (): boolean => {
-    const { inquiryDetails } = formData
+  // const validateForm = (): boolean => {
+  //   const { inquiryDetails } = formData
 
-    if (
-      inquiryDetails.weddingRole.selectedOption === 'other' &&
-      !inquiryDetails.weddingRole.otherText.trim()
-    ) {
-      alert("Please describe your role in the 'Other' field.")
-      return false
-    }
+  //   if (
+  //     inquiryDetails.weddingRole.selectedOption === 'other' &&
+  //     !inquiryDetails.weddingRole.otherText.trim()
+  //   ) {
+  //     alert("Please describe your role in the 'Other' field.")
+  //     return false
+  //   }
 
-    return true
-  }
+  //   return true
+  // }
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault()
-    if (validateForm()) {
-      console.log(formData)
-    }
-  }
+  // const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  //   e.preventDefault()
+  //   if (validateForm()) {
+  //     console.log(formData)
+  //   }
+  // }
 
   return (
     <div className='content-grid margin-top'>
@@ -284,13 +284,14 @@ const Contact = () => {
                   checked={
                     formData.inquiryDetails.weddingRole.selectedOption === value
                   }
-                  onChange={e =>
-                    handleSelectionChange(e, [
-                      'inquiryDetails',
-                      'weddingRole',
-                      'selectedOption'
-                    ])
-                  }
+                  // onChange={e => ()
+                  //   // handleSelectionChange(e, [
+                  //   //   'inquiryDetails',
+                  //   //   'weddingRole',
+                  //   //   'selectedOption'
+                  //   // ])
+
+                  // }
                   label={label}
                 />
               ))}
@@ -302,13 +303,13 @@ const Contact = () => {
                   type='text'
                   id='wedding-other'
                   value={formData.inquiryDetails.weddingRole.otherText}
-                  onChange={e =>
-                    handleOtherTextChange(e, [
-                      'inquiryDetails',
-                      'weddingRole',
-                      'otherText'
-                    ])
-                  }
+                  // onChange={e =>
+                  //   handleOtherTextChange(e, [
+                  //     'inquiryDetails',
+                  //     'weddingRole',
+                  //     'otherText'
+                  //   ])
+                  // }
                   placeholder='Please specify your role'
                 />
               )}
@@ -347,13 +348,13 @@ const Contact = () => {
                   checked={
                     formData.inquiryDetails.interest.selectedOption === value
                   }
-                  onChange={e =>
-                    handleSelectionChange(e, [
-                      'inquiryDetails',
-                      'interest',
-                      'selectedOption'
-                    ])
-                  }
+                  // onChange={e =>
+                  //   handleSelectionChange(e, [
+                  //     'inquiryDetails',
+                  //     'interest',
+                  //     'selectedOption'
+                  //   ])
+                  // }
                   label={label}
                 />
               ))}
@@ -364,13 +365,13 @@ const Contact = () => {
                   type='text'
                   id='wedding-other'
                   value={formData.inquiryDetails.interest.otherText}
-                  onChange={e =>
-                    handleOtherTextChange(e, [
-                      'inquiryDetails',
-                      'interest',
-                      'otherText'
-                    ])
-                  }
+                  // onChange={e =>
+                  //   handleOtherTextChange(e, [
+                  //     'inquiryDetails',
+                  //     'interest',
+                  //     'otherText'
+                  //   ])
+                  // }
                   placeholder='Please specify your inquiry'
                   aria-describedby='interest-legend'
                 />
@@ -416,7 +417,7 @@ const Contact = () => {
                   checked={formData.inquiryDetails.serviceInterest.selectedOption.includes(
                     value
                   )}
-                  onChange={e => handleCheckboxChange(e)}
+                  // onChange={e => handleCheckboxChange(e)}
                   label={label}
                 />
               ))}
@@ -428,13 +429,13 @@ const Contact = () => {
                   type='text'
                   id='service-interest-other'
                   value={formData.inquiryDetails.serviceInterest.otherText}
-                  onChange={e =>
-                    handleOtherTextChange(e, [
-                      'inquiryDetails',
-                      'serviceInterest',
-                      'otherText'
-                    ])
-                  }
+                  // onChange={e =>
+                  //   handleOtherTextChange(e, [
+                  //     'inquiryDetails',
+                  //     'serviceInterest',
+                  //     'otherText'
+                  //   ])
+                  // }
                   placeholder='Describe what services you are interested in'
                 />
               )}
@@ -480,9 +481,9 @@ const Contact = () => {
                   name='referral'
                   value={value}
                   checked={formData.referral.selectedOption === value}
-                  onChange={e =>
-                    handleSelectionChange(e, ['referral', 'selectedOption'])
-                  }
+                  // onChange={e =>
+                  //   handleSelectionChange(e, ['referral', 'selectedOption'])
+                  // }
                   label={label}
                 />
               ))}
@@ -494,13 +495,13 @@ const Contact = () => {
                   type='text'
                   id='service-interest-other'
                   value={formData.inquiryDetails.serviceInterest.otherText}
-                  onChange={e =>
-                    handleOtherTextChange(e, [
-                      'inquiryDetails',
-                      'serviceInterest',
-                      'otherText'
-                    ])
-                  }
+                  // onChange={e =>
+                  //   handleOtherTextChange(e, [
+                  //     'inquiryDetails',
+                  //     'serviceInterest',
+                  //     'otherText'
+                  //   ])
+                  // }
                   placeholder='Describe what services you are interested in'
                 />
               )}
@@ -534,16 +535,19 @@ const Contact = () => {
                   name='referral'
                   value={value}
                   checked={formData.referral.selectedOption === value}
-                  onChange={e =>
-                    handleSelectionChange(e, ['referral', 'selectedOption'])
-                  }
+                  // onChange={e =>
+                  //   handleSelectionChange(e, ['referral', 'selectedOption'])
+                  // }
                   label={label}
                 />
               ))}
             </div>
           </fieldset>
 
-          <button className='primary-button' onClick={e => handleSubmit}>
+          <button
+            className='primary-button'
+            //onClick={e => handleSubmit}
+          >
             Submit
           </button>
         </form>
