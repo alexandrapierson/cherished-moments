@@ -4,11 +4,17 @@ import styles from './page.module.css'
 import Image from 'next/image'
 import React, { useState } from 'react'
 import RadioButton from '../components/radio-button/RadioButton'
-//import Checkbox from '../components/checkbox/Checkbox'
+import Checkbox from '../components/checkbox/Checkbox'
 
 const Contact = () => {
-  const [weddingRole, setWeddingRole] = useState(false)
+  const [weddingRole, setWeddingRole] = useState('')
   const [weddingRoleValue, setWeddingRoleValue] = useState('')
+  const [interest, setInterest] = useState('')
+  const [interestValue, setInterestValue] = useState('')
+  const [services, setServices] = useState('')
+  const [servicesValue, setServicesValue] = useState('')
+  const [referral, setReferral] = useState('')
+  const [referralValue, setReferralValue] = useState('')
 
   return (
     <div className='content-grid margin-top'>
@@ -104,27 +110,24 @@ const Contact = () => {
                   key={value}
                   name='weddingRole'
                   value={value}
-                  checked={weddingRole}
-                  onChange={() => setWeddingRole(true)}
+                  checked={weddingRole === value}
+                  onChange={() => setWeddingRole(value)}
                   label={label}
                 />
               ))}
 
-              {weddingRole ? (
+              {weddingRole === 'other' && (
                 <input
                   className={styles.otherInput}
                   type='text'
                   id='wedding-other'
                   value={weddingRoleValue}
-                  onChange={() => setWeddingRole(true)}
+                  onChange={e => setWeddingRoleValue(e.target.value)}
                   placeholder='Please specify your role'
                 />
-              ) : (
-                <></>
               )}
             </div>
 
-            {/* 
             <div className={`${styles.formSectionContainer} margin-m`}>
               <h2 className='margin-xs'>What brings you to us?</h2>
 
@@ -155,23 +158,23 @@ const Contact = () => {
                   key={value}
                   name='interest'
                   value={value}
-                  checked={}
-                  onChange={}
+                  checked={interest === value}
+                  onChange={() => setInterest(value)}
                   label={label}
                 />
               ))}
 
-              {
+              {interest === 'other' && (
                 <input
                   className={styles.otherInput}
                   type='text'
                   id='wedding-other'
-                  value={}
-                  onChange={}
+                  value={interestValue}
+                  onChange={e => setInterestValue(e.target.value)}
                   placeholder='Please specify your inquiry'
                   aria-describedby='interest-legend'
                 />
-              }
+              )}
             </div>
 
             <div className={`${styles.formSectionContainer} margin-m`}>
@@ -210,21 +213,21 @@ const Contact = () => {
                   key={value}
                   name='serviceInterest'
                   value={value}
-                  checked={}
-                  onChange={}
+                  checked={services === value}
+                  onChange={() => setServices(value)}
                   label={label}
                 />
               ))}
-              {
+              {services === 'other' && (
                 <input
                   className={styles.otherInput}
                   type='text'
                   id='service-interest-other'
-                  value={}
-                  onChange={}
+                  value={servicesValue}
+                  onChange={e => setServicesValue(e.target.value)}
                   placeholder='Describe what services you are interested in'
                 />
-              }
+              )}
             </div>
 
             <div className={`${styles.formSectionContainer} margin-m`}>
@@ -266,22 +269,22 @@ const Contact = () => {
                   key={value}
                   name='referral'
                   value={value}
-                  checked={}
-                  onChange={}
+                  checked={referral === value}
+                  onChange={() => setReferral(value)}
                   label={label}
                 />
               ))}
-              {
+              {referral === 'other' && (
                 <input
                   className={styles.otherInput}
                   type='text'
                   id='service-interest-other'
-                  value={}
-                  onChange={}
+                  value={referralValue}
+                  onChange={e => setReferralValue(e.target.value)}
                   placeholder='Describe how you came to find our service.'
                 />
-              }
-            </div>*/}
+              )}
+            </div>
           </fieldset>
 
           <div className={`${styles.formSectionContainer} margin-m`}>
