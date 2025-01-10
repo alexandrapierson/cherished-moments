@@ -29,6 +29,7 @@ interface PortfolioCoupleProps {
   coupleImageSrc: string
   coupleImageAlt?: string
   serviceImages: ServiceImage[]
+  hrefLink: string
 }
 
 const PortfolioCouple: React.FC<PortfolioCoupleProps> = ({
@@ -37,7 +38,8 @@ const PortfolioCouple: React.FC<PortfolioCoupleProps> = ({
   coupleQuote = 'Couple Description',
   coupleImageSrc = '',
   coupleImageAlt = `${couplesName} wedding photo.`,
-  serviceImages = []
+  serviceImages = [],
+  hrefLink = '#'
 }) => {
   const getServiceIcon = (iconName: string) => {
     switch (iconName.toLowerCase()) {
@@ -88,7 +90,9 @@ const PortfolioCouple: React.FC<PortfolioCoupleProps> = ({
 
         <blockquote>&#34;{coupleQuote}&#34;</blockquote>
 
-        <button className='primary-button'>{couplesName}&#39;s Wedding</button>
+        <a href={hrefLink} className='primary-button'>
+          {couplesName}&#39;s Wedding
+        </a>
       </div>
 
       <div className={styles.coupleImage}>

@@ -43,6 +43,7 @@ const Portfolio = () => {
         ]}
         coupleQuote='Walking down the aisle and seeing Dallas standing there, waiting for me, was a moment I will never forget. It felt like time stopped, and everything around us disappeared. I was overwhelmed with emotion, knowing this was the beginning of forever with the love of my life.'
         coupleImageSrc='/images/portfolio/dallas-and-dani/dallas-and-dani-wedding-photo.jpg'
+        hrefLink='portfolio/dallas-and-dani'
         serviceImages={[
           {
             serviceImageAlt:
@@ -77,6 +78,7 @@ const Portfolio = () => {
         services={['venue', 'catering', 'floral', 'stationery', 'event']}
         coupleQuote='Our wedding day was everything we dreamed of and more. When we exchanged our vows, I couldn&#39;t help but tear up, thinking about all the memories we&#39;d already made and the future we&#39;re about to create together. The love we felt from our family and friends made everything even more meaningful.'
         coupleImageSrc='/images/portfolio/joshua-and-piper/joshua-and-piper-wedding-photo.jpg'
+        hrefLink='portfolio/joshua-and-piper'
         serviceImages={[
           {
             serviceImageAlt:
@@ -150,6 +152,7 @@ const Portfolio = () => {
         ]}
         coupleQuote='The moment I saw Brandon waiting for me at the altar, all the nerves disappeared. I could only focus on him, feeling like the luckiest person alive. The joy, love, and excitement we felt that day is something I will carry with me forever. It was a day that felt like it was made just for us.'
         coupleImageSrc='/images/portfolio/brandon-and-lily/brandon-and-lily-wedding-photo.jpg'
+        hrefLink='portfolio/brandon-and-lily'
         serviceImages={[
           {
             serviceImageAlt:
@@ -179,7 +182,7 @@ const Portfolio = () => {
         ]}
       />
 
-      <section className={`image-text-section`}>
+      <section className={`image-text-section right`}>
         <div className={`image-container`}>
           <Image
             src='/images/home-page/couple-pixabay.jpg'
