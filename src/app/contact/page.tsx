@@ -287,14 +287,13 @@ const Contact = () => {
                   checked={
                     formData.inquiryDetails.weddingRole.selectedOption === value
                   }
-                  // onChange={e => ()
-                  //   // handleSelectionChange(e, [
-                  //   //   'inquiryDetails',
-                  //   //   'weddingRole',
-                  //   //   'selectedOption'
-                  //   // ])
-
-                  // }
+                  onChange={e =>
+                    handleSelectionChange(e, [
+                      'inquiryDetails',
+                      'weddingRole',
+                      'selectedOption'
+                    ])
+                  }
                   label={label}
                 />
               ))}
@@ -306,13 +305,13 @@ const Contact = () => {
                   type='text'
                   id='wedding-other'
                   value={formData.inquiryDetails.weddingRole.otherText}
-                  // onChange={e =>
-                  //   handleOtherTextChange(e, [
-                  //     'inquiryDetails',
-                  //     'weddingRole',
-                  //     'otherText'
-                  //   ])
-                  // }
+                  onChange={e =>
+                    handleOtherTextChange(e, [
+                      'inquiryDetails',
+                      'weddingRole',
+                      'otherText'
+                    ])
+                  }
                   placeholder='Please specify your role'
                 />
               )}
@@ -351,13 +350,13 @@ const Contact = () => {
                   checked={
                     formData.inquiryDetails.interest.selectedOption === value
                   }
-                  // onChange={e =>
-                  //   handleSelectionChange(e, [
-                  //     'inquiryDetails',
-                  //     'interest',
-                  //     'selectedOption'
-                  //   ])
-                  // }
+                  onChange={e =>
+                    handleSelectionChange(e, [
+                      'inquiryDetails',
+                      'interest',
+                      'selectedOption'
+                    ])
+                  }
                   label={label}
                 />
               ))}
@@ -368,13 +367,13 @@ const Contact = () => {
                   type='text'
                   id='wedding-other'
                   value={formData.inquiryDetails.interest.otherText}
-                  // onChange={e =>
-                  //   handleOtherTextChange(e, [
-                  //     'inquiryDetails',
-                  //     'interest',
-                  //     'otherText'
-                  //   ])
-                  // }
+                  onChange={e =>
+                    handleOtherTextChange(e, [
+                      'inquiryDetails',
+                      'interest',
+                      'otherText'
+                    ])
+                  }
                   placeholder='Please specify your inquiry'
                   aria-describedby='interest-legend'
                 />
@@ -420,7 +419,7 @@ const Contact = () => {
                   checked={formData.inquiryDetails.serviceInterest.selectedOptions.includes(
                     value
                   )}
-                  // onChange={e => handleCheckboxChange(e)}
+                  onChange={handleCheckboxChange}
                   label={label}
                 />
               ))}
@@ -432,13 +431,13 @@ const Contact = () => {
                   type='text'
                   id='service-interest-other'
                   value={formData.inquiryDetails.serviceInterest.otherText}
-                  // onChange={e =>
-                  //   handleOtherTextChange(e, [
-                  //     'inquiryDetails',
-                  //     'serviceInterest',
-                  //     'otherText'
-                  //   ])
-                  // }
+                  onChange={e =>
+                    handleOtherTextChange(e, [
+                      'inquiryDetails',
+                      'serviceInterest',
+                      'otherText'
+                    ])
+                  }
                   placeholder='Describe what services you are interested in'
                 />
               )}
@@ -486,9 +485,13 @@ const Contact = () => {
                   checked={
                     formData.inquiryDetails.referral.selectedOption === value
                   }
-                  // onChange={e =>
-                  //   handleSelectionChange(e, ['referral', 'selectedOption'])
-                  // }
+                  onChange={e =>
+                    handleSelectionChange(e, [
+                      'inquiryDetails',
+                      'referral',
+                      'selectedOption'
+                    ])
+                  }
                   label={label}
                 />
               ))}
@@ -498,54 +501,43 @@ const Contact = () => {
                   type='text'
                   id='service-interest-other'
                   value={formData.inquiryDetails.referral.otherText}
-                  // onChange={e =>
-                  //   handleOtherTextChange(e, [
-                  //     'inquiryDetails',
-                  //     'serviceInterest',
-                  //     'otherText'
-                  //   ])
-                  // }
+                  onChange={e =>
+                    handleOtherTextChange(e, [
+                      'inquiryDetails',
+                      'referral',
+                      'otherText'
+                    ])
+                  }
                   placeholder='Describe how you came to find our service.'
                 />
               )}
             </div>
-
-            <div className={`${styles.formSectionContainer} margin-m`}>
-              <h2 className='margin-xs'>
-                When is the best time for us to contact you?
-              </h2>
-
-              {[
-                {
-                  value: 'morning',
-                  label: 'Morning (9am - 12pm)'
-                },
-                {
-                  value: 'afternoon',
-                  label: 'Afternoon (12pm - 5pm)'
-                },
-                {
-                  value: 'evening',
-                  label: 'Evening (5pm - 8pm)'
-                },
-                {
-                  value: 'no-preference',
-                  label: 'No Preference'
-                }
-              ].map(({ value, label }) => (
-                <RadioButton
-                  key={value}
-                  name='referral'
-                  value={value}
-                  checked={formData.contactInformation.contactTime === value}
-                  // onChange={e =>
-                  //   handleSelectionChange(e, ['referral', 'selectedOption'])
-                  // }
-                  label={label}
-                />
-              ))}
-            </div>
           </fieldset>
+
+          <div className={`${styles.formSectionContainer} margin-m`}>
+            <h3 className='margin-xs'>
+              When is the best time for us to contact you?
+            </h3>
+            <label className={`radioItem`}>
+              <input type='radio' name='contactTime' value='morning' />
+              Morning (9am - 12pm)
+            </label>
+
+            <label className={`radioItem`}>
+              <input type='radio' name='contactTime' value='afternoon' />
+              Afternoon (12pm - 5pm)
+            </label>
+
+            <label className={`radioItem`}>
+              <input type='radio' name='contactTime' value='evening' />
+              Evening (5pm - 8pm)
+            </label>
+
+            <label className={`radioItem`}>
+              <input type='radio' name='contactTime' value='none' />
+              No Preference
+            </label>
+          </div>
 
           <button
             className='primary-button'
