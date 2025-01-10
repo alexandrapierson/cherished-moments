@@ -4,4 +4,6 @@ export interface SVGProps {
   height?: string
   className?: string
   alt?: string
+  fill?: string
+  stroke?: string
 }
