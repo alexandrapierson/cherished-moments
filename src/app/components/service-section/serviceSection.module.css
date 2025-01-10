@@ -1,0 +1,32 @@
+.serviceSection {
+}
+
+.serviceDetails {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+  justify-content: center;
+  align-items: center;
+  max-width: 750px;
+  justify-self: center;
+  justify-items: center;
+}
+
+.serviceName {
+  font-size: x-large;
+  font-family: 'Lora';
+  margin-bottom: 0.75rem;
+}
+
+.serviceSection .serviceInformation {
+  grid-column: 2/5;
+}
+
+.serviceImages {
+  grid-row: 2/3;
+  height: 300px;
+
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+}

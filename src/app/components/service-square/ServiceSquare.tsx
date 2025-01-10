@@ -56,7 +56,7 @@ const ServiceSquare: React.FC<ServiceSquareProps> = ({
   }
 
   return (
-    <div className={styles.serviceSquare}>
+    <a className={styles.serviceSquare} href={`#${service}`}>
       <p>{serviceName}</p>
 
       {(() => {
@@ -67,7 +67,7 @@ const ServiceSquare: React.FC<ServiceSquareProps> = ({
           </div>
         )
       })()}
-    </div>
+    </a>
   )
 }
 
