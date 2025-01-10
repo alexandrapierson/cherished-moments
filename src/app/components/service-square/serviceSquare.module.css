@@ -1,0 +1,39 @@
+.serviceSquare {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  justify-items: center;
+  width: max-content;
+}
+
+.serviceSquare p {
+  text-align: center;
+  font-size: large;
+  font-family: 'Lora';
+}
+
+.serviceIcon {
+  align-self: center;
+  position: relative;
+}
+
+.serviceSquare:hover {
+  cursor: pointer;
+}
+
+.serviceSquare:hover .serviceIcon::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: var(--primary-100);
+  border-radius: 100%;
+  z-index: 1;
+}
+
+.serviceIcon svg {
+  position: relative;
+  z-index: 2;
+}
