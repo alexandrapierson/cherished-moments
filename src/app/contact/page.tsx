@@ -4,191 +4,11 @@ import styles from './page.module.css'
 import Image from 'next/image'
 import React, { useState } from 'react'
 import RadioButton from '../components/radio-button/RadioButton'
-import Checkbox from '../components/checkbox/Checkbox'
-
-type ContactInformation = {
-  firstName: string
-  lastName: string
-  emailAddress: string
-  phoneNumber: string
-  contactMethod: string
-  contactTime: string
-}
-
-type InquiryDetailRadio = {
-  selectedOption: string
-  otherText: string
-}
-
-type InquiryDetailSelection = {
-  selectedOption: string[] | string
-  otherText: string
-}
-
-type InquiryDetails = {
-  weddingRole: InquiryDetailRadio
-  interest: InquiryDetailRadio
-  serviceInterest: InquiryDetailSelection
-  additionalComment: string
-  referral: InquiryDetailRadio
-}
-
-type FormData = {
-  contactInformation: ContactInformation
-  inquiryDetails: InquiryDetails
-}
-
-type NestedForm<T> = {
-  [K in keyof T]: T[K] extends object ? [K, ...NestedForm<T[K]>] : [K]
-}[keyof T]
+//import Checkbox from '../components/checkbox/Checkbox'
 
 const Contact = () => {
-  const [formData, setFormData] = useState({
-    contactInformation: {
-      firstName: '',
-      lastName: '',
-      emailAddress: '',
-      phoneNumber: '',
-      contactMethod: '',
-      contactTime: ''
-    },
-    inquiryDetails: {
-      weddingRole: {
-        selectedOption: '',
-        otherText: ''
-      },
-      interest: {
-        selectedOption: '',
-        otherText: ''
-      },
-      serviceInterest: {
-        selectedOptions: [''],
-        otherText: ''
-      },
-      additionalComment: '',
-      referral: {
-        selectedOption: '',
-        otherText: ''
-      }
-    }
-  })
-
-  const isInquiryDetail = (field: unknown): field is InquiryDetailRadio => {
-    return (
-      typeof field === 'object' &&
-      field !== null &&
-      'selectedOption' in field &&
-      'otherText' in field &&
-      (typeof (field as InquiryDetailRadio).selectedOption === 'string' ||
-        Array.isArray((field as InquiryDetailRadio).selectedOption))
-    )
-  }
-
-  const handleSelectionChange = (
-    e: React.ChangeEvent<HTMLInputElement>,
-    path: NestedForm<FormData>
-  ) => {
-    const { value } = e.target
-
-    setFormData(prev => {
-      const updatedData = { ...prev }
-      path.reduce((acc: any, key, index) => {
-        if (index === path.length - 1) {
-          if (isInquiryDetail(acc[key])) {
-            if (typeof acc[key].selectedOption === 'string') {
-              acc[key].selectedOption = value
-              acc[key].otherText =
-                value !== 'other' ? '' : acc[key].otherText || ''
-            }
-          }
-        } else {
-          acc[key] = { ...acc[key] } // Maintain immutability
-        }
-        return acc[key]
-      }, updatedData)
-
-      return updatedData
-    })
-  }
-
-  const handleOtherTextChange = (
-    e: React.ChangeEvent<HTMLInputElement>,
-    path: NestedForm<FormData>
-  ) => {
-    const { value } = e.target
-
-    setFormData(prev => {
-      const updatedData = { ...prev }
-      path.reduce((acc: any, key, index) => {
-        if (index === path.length - 1 && isInquiryDetail(acc[key])) {
-          acc[key].otherText = value
-        } else {
-          acc[key] = { ...acc[key] }
-        }
-        return acc[key]
-      }, updatedData)
-      return updatedData
-    })
-  }
-
-  const handleCheckboxChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const { value, checked } = e.target
-
-    setFormData(prev => {
-      const updatedData = { ...prev }
-
-      const field = updatedData.inquiryDetails.serviceInterest
-
-      if (isInquiryDetail(field) && Array.isArray(field.selectedOption)) {
-        field.selectedOptions = checked
-          ? [...field.selectedOption, value]
-          : field.selectedOption.filter(option => option !== value)
-      }
-
-      return updatedData
-    })
-  }
-
-  const handleInputChange = (
-    e: React.ChangeEvent<HTMLInputElement>,
-    path: NestedForm<FormData>
-  ) => {
-    const { name, value } = e.target
-
-    setFormData(prev => {
-      const updatedData = { ...prev }
-      path.reduce((acc: any, key, index) => {
-        if (index === path.length - 1) {
-          acc[key] = { ...acc[key], [name]: value }
-        } else {
-          acc[key] = { ...acc[key] }
-        }
-        return acc[key]
-      }, updatedData)
-      return updatedData
-    })
-  }
-
-  const validateForm = (): boolean => {
-    const { inquiryDetails } = formData
-
-    if (
-      inquiryDetails.weddingRole.selectedOption === 'other' &&
-      !inquiryDetails.weddingRole.otherText.trim()
-    ) {
-      alert("Please describe your role in the 'Other' field.")
-      return false
-    }
-
-    return true
-  }
-
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault()
-    if (validateForm()) {
-      console.log(formData)
-    }
-  }
+  const [weddingRole, setWeddingRole] = useState(false)
+  const [weddingRoleValue, setWeddingRoleValue] = useState('')
 
   return (
     <div className='content-grid margin-top'>
@@ -284,39 +104,27 @@ const Contact = () => {
                   key={value}
                   name='weddingRole'
                   value={value}
-                  checked={
-                    formData.inquiryDetails.weddingRole.selectedOption === value
-                  }
-                  onChange={e =>
-                    handleSelectionChange(e, [
-                      'inquiryDetails',
-                      'weddingRole',
-                      'selectedOption'
-                    ])
-                  }
+                  checked={weddingRole}
+                  onChange={() => setWeddingRole(true)}
                   label={label}
                 />
               ))}
 
-              {formData.inquiryDetails.weddingRole.selectedOption ===
-                'other' && (
+              {weddingRole ? (
                 <input
                   className={styles.otherInput}
                   type='text'
                   id='wedding-other'
-                  value={formData.inquiryDetails.weddingRole.otherText}
-                  onChange={e =>
-                    handleOtherTextChange(e, [
-                      'inquiryDetails',
-                      'weddingRole',
-                      'otherText'
-                    ])
-                  }
+                  value={weddingRoleValue}
+                  onChange={() => setWeddingRole(true)}
                   placeholder='Please specify your role'
                 />
+              ) : (
+                <></>
               )}
             </div>
 
+            {/* 
             <div className={`${styles.formSectionContainer} margin-m`}>
               <h2 className='margin-xs'>What brings you to us?</h2>
 
@@ -347,37 +155,23 @@ const Contact = () => {
                   key={value}
                   name='interest'
                   value={value}
-                  checked={
-                    formData.inquiryDetails.interest.selectedOption === value
-                  }
-                  onChange={e =>
-                    handleSelectionChange(e, [
-                      'inquiryDetails',
-                      'interest',
-                      'selectedOption'
-                    ])
-                  }
+                  checked={}
+                  onChange={}
                   label={label}
                 />
               ))}
 
-              {formData.inquiryDetails.interest.selectedOption === 'other' && (
+              {
                 <input
                   className={styles.otherInput}
                   type='text'
                   id='wedding-other'
-                  value={formData.inquiryDetails.interest.otherText}
-                  onChange={e =>
-                    handleOtherTextChange(e, [
-                      'inquiryDetails',
-                      'interest',
-                      'otherText'
-                    ])
-                  }
+                  value={}
+                  onChange={}
                   placeholder='Please specify your inquiry'
                   aria-describedby='interest-legend'
                 />
-              )}
+              }
             </div>
 
             <div className={`${styles.formSectionContainer} margin-m`}>
@@ -416,31 +210,21 @@ const Contact = () => {
                   key={value}
                   name='serviceInterest'
                   value={value}
-                  checked={formData.inquiryDetails.serviceInterest.selectedOptions.includes(
-                    value
-                  )}
-                  onChange={handleCheckboxChange}
+                  checked={}
+                  onChange={}
                   label={label}
                 />
               ))}
-              {formData.inquiryDetails.serviceInterest.selectedOptions.includes(
-                'other'
-              ) && (
+              {
                 <input
                   className={styles.otherInput}
                   type='text'
                   id='service-interest-other'
-                  value={formData.inquiryDetails.serviceInterest.otherText}
-                  onChange={e =>
-                    handleOtherTextChange(e, [
-                      'inquiryDetails',
-                      'serviceInterest',
-                      'otherText'
-                    ])
-                  }
+                  value={}
+                  onChange={}
                   placeholder='Describe what services you are interested in'
                 />
-              )}
+              }
             </div>
 
             <div className={`${styles.formSectionContainer} margin-m`}>
@@ -482,36 +266,22 @@ const Contact = () => {
                   key={value}
                   name='referral'
                   value={value}
-                  checked={
-                    formData.inquiryDetails.referral.selectedOption === value
-                  }
-                  onChange={e =>
-                    handleSelectionChange(e, [
-                      'inquiryDetails',
-                      'referral',
-                      'selectedOption'
-                    ])
-                  }
+                  checked={}
+                  onChange={}
                   label={label}
                 />
               ))}
-              {formData.inquiryDetails.referral.otherText.includes('other') && (
+              {
                 <input
                   className={styles.otherInput}
                   type='text'
                   id='service-interest-other'
-                  value={formData.inquiryDetails.referral.otherText}
-                  onChange={e =>
-                    handleOtherTextChange(e, [
-                      'inquiryDetails',
-                      'referral',
-                      'otherText'
-                    ])
-                  }
+                  value={}
+                  onChange={}
                   placeholder='Describe how you came to find our service.'
                 />
-              )}
-            </div>
+              }
+            </div>*/}
           </fieldset>
 
           <div className={`${styles.formSectionContainer} margin-m`}>
