@@ -1,0 +1,18 @@
+/* Add Page Specific CSS */
+
+.content_grid {
+  background-color: red;
+}
+
+.serviceGrid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  justify-items: center;
+  gap: 1rem;
+}
+
+.packageOptions {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+}
