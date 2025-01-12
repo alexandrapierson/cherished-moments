@@ -8,20 +8,20 @@ import PackageOption from '../components/package-options/PackageOptions'
 import ServiceSection from '../components/service-section/ServiceSection'
 
 const Services = () => {
-  const serviceOrder = [
-    'Venue',
-    'Attire',
-    'Catering',
-    'Floral',
-    'Photography',
-    'Videography',
-    'Stationery',
-    'Theme',
-    'Timeline',
-    'Event',
-    'Travel',
-    'Guest'
-  ]
+  // const serviceOrder = [
+  //   'Venue',
+  //   'Attire',
+  //   'Catering',
+  //   'Floral',
+  //   'Photography',
+  //   'Videography',
+  //   'Stationery',
+  //   'Theme',
+  //   'Timeline',
+  //   'Event',
+  //   'Travel',
+  //   'Guest'
+  // ]
 
   return (
     <main className='content-grid margin-top'>
